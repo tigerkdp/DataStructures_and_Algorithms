@@ -508,3 +508,66 @@ target = 50
 print("Has three sum", has_three_sum(A, target))
 
 
+import heapq as pq
+def minimumTime(numOfSubFiles, files):   
+    h = []  
+    for i in range(0, numOfSubFiles):
+        pq.heappush(h, files[i])
+        
+    cnt = 0
+    
+    while len(h) > 1:
+        
+        temp = pq.heappop(h) + pq.heappop(h)
+        cnt += temp
+        
+        pq.heappush(h, temp)
+        
+    return cnt
+    
+files=[4,8,6,12]
+numOfSubFiles = 4
+min_time = minimumTime(numOfSubFiles, files)
+print(min_time)
+#output 58,  4+6:10,  8+10=18, 12+18=30, 10+18+30
+
+
+#
+def optimalUtilization(deviceCapacity, foregroundAppList, backgroundApplist):
+    
+    result = []
+    foregroundMap = {} 
+    backgroundMap = {}
+    
+    for i in range(0, len(foregroundAppList)): 
+        foregroundMap[foregroundAppList[i][1]] = foregroundAppList[i][0]
+     
+    
+    print(foregroundMap)
+
+    for i in range(0, len(backgroundApplist)): 
+        backgroundMap[backgroundApplist[i][1]] = backgroundApplist[i][0]    
+
+    print(backgroundMap)
+    
+    for key, value in  foregroundMap.items():   
+        sum_minus = deviceCapacity - key
+        
+        #if 2 exist in map, then add  2 and 7.        
+        if sum_minus in backgroundMap:
+            result.append(value)
+            result.append(backgroundMap[sum_minus])
+            
+            print(result)
+            result = []
+            
+
+deviceCapacity = 10
+foregroundAppList= [[1,3],[2,5],[3,7], [4,10]]
+backgroundAppList = [[1,2],[2,3],[3,4], [4,5]]
+
+optimalUtilization(deviceCapacity, foregroundAppList,backgroundAppList )
+
+#output 3
+#[2, 4]  #5 + 5 = 10
+#[3, 2]  #7 + 3 = 10

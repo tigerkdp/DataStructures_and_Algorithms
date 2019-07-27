@@ -1135,6 +1135,41 @@ class BinaryTree:
         
         return max(lef + rig+1, max(leftdiam, rightdiam))
     
+    
+    """
+       4
+    3     2
+  1   5 6   7
+  
+  Diam =5 
+  
+          1) call diam(4)    --root
+             2) call height(3)     --4.left
+                 3) call height(1)     --3.left
+                     4) call height(None)  - 1.left
+                         4r) return 0
+                     5) call height(None)  -1.right
+                         5r) return 0
+                     left = 0, right = 0
+                     6) call diam(None)  -1.right
+                                        
+     
+                     
+     
+     
+                 6) call height(5)     --3.right
+                     7) call height(None) --5.left
+                         7r) return 0   
+                     8) call height(none) --5.right
+                         8r) return 0
+                     
+    
+    
+    """
+         
+    
+    
+    
     #NODE COUNT METHODS-------------------------------------------------------
     
     #level order. while q, pop. if node.left and node.right exist. count
