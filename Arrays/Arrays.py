@@ -45,6 +45,19 @@ print(sorted_search(A, 11))
 #7
 #-1
 
+#is list soted - recursive
+def isListSorted(A, index):
+    if index == 1:
+        print("sorted")
+        return
+    else:
+        if A[index] >= A[index-1]:
+            return isListSorted(A, index-1)
+    print("not sorted")
+        
+A=[1,2,3,4,5,6]
+isListSorted(A, len(A)-1)
+
 #constraint - sorted
 def Binary_search_iterative(A, data):
     lo = 0
@@ -122,6 +135,16 @@ check_dups_in_sorted(A)
 #O(NLogN) - NLogN due to sorting.
 
 
+#whether n is even or odd.
+def evenOrodd(n):
+    if n % 2 == 0:
+        print("even")
+    else:
+        print("odd")
+        
+evenOrodd(7)
+
+
 #read the array and move even numbers in front of the list
 #and odd numbers in the back.
 def even_odd(A):
@@ -140,7 +163,43 @@ even_odd(A)
 print(A)
 #output
 # [2,4,2,8,24.12,3,5,19,1]
+
+#seive of erosthenes
+#print all prime numbers below 100
+# all all numbers from 2 to N in a list.
+#define a variable count = 2.  
+#while 2 < n. loop.
+#for each i from 2 to n. remove i - if i%count=0, and i in alist, and i!=count.
+  #increment count.
+def primeList(N):
+    if N < 2:
+        return False
+    elif N == 2:
+        return True
+    alist = []
+    for i in range(2,N):
+        alist.append(i)
+    
+    count=2
+    while count < N:
+        for i in range(2, N):
+            if i % count == 0 and i in alist and i != count:
+                alist.remove(i)
+                i+=1
+        #print(count)
+        count +=1
+    print(alist)
+    
+primeList(100)
         
+#is prime
+def isPrime(N):
+    for i in range(2, N):
+        if N % i == 0:
+            return False
+    return True
+       
+print(isPrime(67))
 
 #have to return the index of the array
 #or set the remaining values to None.
@@ -180,6 +239,30 @@ A = [10,324,45, 90, 100]
 max1 = find_max_elem_in_array(A)
 print("\nLargest elem is", max1)
 
+
+
+#Element appears max # of times 
+#use hash table
+def max_appearance(N):
+    a_hash = {}
+    
+    # add to a hash table
+    for i in N:
+        if i in a_hash:
+            a_hash[i] +=1
+        else:
+            a_hash[i] = 1
+    max =0
+    print(a_hash)
+    
+    for key, item in a_hash.items():
+        if item > max:
+            max = key
+    print(max)
+
+A = [1,2,3,4,5,5,6,2,2,2,2]  
+max_appearance(A)
+#output 2
 
 #function to find a given integer x appears more than n/2 times
 #divide and conquer using binary search
@@ -290,6 +373,19 @@ print(A)
 #output [1, 19, 5, 24, 3, 12, 2, 8, 2, 4]
 
 
+# sort in wave. 
+def sortinWave(A):
+    A.sort()
+    n = len(A)
+    for i in range(0, n-1,2):
+        A[i], A[i+1] = A[i+1], A[i]
+    return A
+    
+A=[6,5,10, 7,13,44,34]
+print(sortinWave(A))
+
+#[6, 5, 10, 7, 34, 13, 44]
+
 #Given an array return a random subset of the given size of the array elemts
 import random
 def random_sampling(A, k):
@@ -344,6 +440,95 @@ A = [1,2,4,5,6]
 print("missing number is ", get_missing_num(A))
 
 #output 3
+
+
+#Dutch National
+# lo, mid = 0, and hi = len(n)-1
+#if A[mid] and A[lo] ==0, then swap and move lo++,mid++. 
+#else A[mid]==1, the mid++
+#elseif A[mid]==2, then swap with high and hi--
+def DutchNational(A):
+    lo = 0
+    hi = len(A)-1
+    mid = 0
+
+    while mid < hi:
+       if A[mid] == 0:
+            A[lo], A[mid] = A[mid], A[lo]
+            lo+=1
+            mid+=1
+       elif A[mid] == 1:
+            mid+=1
+       else:
+            A[mid], A[hi] = A[hi], A[mid]
+            hi-=1
+    print(A)
+    
+A=[1,0,2,0,1,0,0,1,2,2,1,0]
+DutchNational(A)
+
+#Common elements in 3 sorted arrays
+# while lo < hi. 
+    #if A[lo] == B[lo] == c[lo], alo++, blo++,clo++
+    #else A[lo] < B[lo], then alo++
+    #else B[lo] < c[lo], then blo++
+    #slse clo++
+def InterSect1(A, B,C):
+    Alo, Ahi = 0, len(A)
+    Blo, Bhi = 0, len(B)
+    Clo , Chi = 0, len(C)
+    while Alo < Ahi and Blo < Bhi and Clo < Chi:
+        if A[Alo] == B[Blo] and B[Blo] == C[Clo]:
+            print(A[Alo])
+            Alo +=1 
+            Blo +=1
+            Clo +=1
+        
+        elif A[Alo] < B[Blo]:
+            Alo+=1
+        
+        elif B[Blo] < C[Clo]:
+            Blo+=1
+            
+        else:
+            Clo+=1
+            
+A = [1,2,3,4,5]
+B = [1,3]
+C = [3,4,5]
+InterSect1(A, B,C)
+
+
+#Merge two sorted arrays.
+#define result list = c. 
+# Alo, Blo, Ahi, Bhi. 
+#while lo < hi for both A/B.
+# first compare A and B 
+# If A small, add value from A in C. else add B
+# If A has remaining value, Add A.
+# if B has remaining values Add B 
+def mergeTwoSortedArrays(A, B):
+    Alo, Ahi = 0, len(A)
+    Blo, Bhi = 0, len(B)
+    C = []
+    while Alo < Ahi and Blo < Bhi:
+        if A[Alo] < B[Blo]:
+            C.append(A[Alo])
+            Alo+=1
+        else:
+            C.append(B[Blo])
+            Blo+=1
+    while Alo < Ahi:
+        C.append(A[Alo])
+        Alo+=1
+    while Blo < Bhi:
+        C.append(B[Blo])        
+        Blo+=1
+        
+    print(C)
+A= [1,4,5,6,9,10]
+B = [2,3,7, 8, 11,12,16,53]
+mergeTwoSortedArrays(A, B) 
 
 #find two elems whose sum is closes to 0
 # sort all elem of input array
@@ -631,3 +816,101 @@ optimalUtilization(deviceCapacity, foregroundAppList,backgroundAppList )
 #output 3
 #[2, 4]  #5 + 5 = 10
 #[3, 2]  #7 + 3 = 10
+
+
+
+#Local Maxima
+def localMaxima(A):
+    n = len(A)-1
+    fs = A[0]
+    ls = A[n]
+    for i in range(1, n):
+        if A[i] > A[i-1] and A[i] > A[i+1]:
+            print(A[i])
+    if fs > A[1]:
+        print(fs)
+    if ls > A[n-1]:
+        print(ls)
+        
+A = [3,2,33,21,22,11]
+localMaxima(A)  #21 2 11
+
+
+#Local Minima
+def localMinima(A):
+    n = len(A)-1
+    fs = A[0]
+    ls = A[n]
+    for i in range(1, n):
+        if A[i] < A[i-1] and A[i] < A[i+1]:
+            print(A[i])
+    if fs < A[1]:
+        print(fs)
+    if ls < A[n-1]:
+        print(ls)
+        
+A = [2,3,33,21,22,11]
+localMinima(A)  #21 2 11
+
+
+#Clycic rotation
+def cyclicRotationUnSorted(A, K):
+    
+    result = []
+    L = len(A)
+    for i in range(0, L):
+        j = (i+K % L) % L
+        result.insert(j, A[i])
+        
+    print("Cyclic rotaion by", K, result)
+    
+A = [3,8,9,7,4]
+cyclicRotationUnSorted(A, 3)
+
+
+
+#Necklace Beads
+
+def necklaceBeads(A):
+    j = 0
+    hi = len(A)-1
+    #dict1= {}
+    temp = 0
+    list1 = []
+    max_counter = 0
+    for i in range(0, hi):
+        #break when all elements are in list
+        if len(A) != len(list1): 
+            counter = 0 
+            #A[j] again but it is already in list
+            while A[j] not in list1: 
+	      #dict for test
+                #dict1.setdefault(i, []).append(A[j])
+                list1.append(A[j])
+                j =  A[j]
+                counter += 1
+            #increment j to next item
+            temp +=1
+            j = temp
+            
+            if counter > max_counter:
+                max_counter = counter
+        else:
+            break    
+    
+    #print(dict1)
+    print(max_counter)
+    
+A = [5, 4, 0, 3, 1, 6, 2]
+necklaceBeads(A)
+
+A[0] = 5   
+A[1] = 4
+A[2] = 0 
+A[3] = 3 
+A[4] = 1
+A[5] = 6    
+A[6] = 2 
+
+#output
+#(5, 6, 2, 0 )  (4,1) (3).   Max Length 4
