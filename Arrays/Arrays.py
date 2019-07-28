@@ -142,6 +142,9 @@ print(A)
 # [2,4,2,8,24.12,3,5,19,1]
         
 
+#have to return the index of the array
+#or set the remaining values to None.
+#and only print the values that are not None.
 def delete_dups_from_sorted_array(A):    
     if not A:
         return 0
@@ -163,6 +166,7 @@ print(A[0:index])
     
 
 #max elem
+#define a max variable and keep checking each value
 def find_max_elem_in_array(A):
     n = len(A)
     
@@ -200,6 +204,7 @@ def binary_search_alt(A, lo, hi, data):
         return -1
 
 
+#binary search. 
 def is_majority(A, n, x):
     
     #if i is found.
@@ -221,6 +226,8 @@ x = 3
 print("does", x, "appear more than n/2 times in A?",is_majority(AB,n,x))
 #output does 3 appear more than n/2 times in A? True
 
+#start reading the array from the end. 
+#Check last value and last value - 1. If matching then return
 def last_duplicate_index_in_a_sorted_array(A):
     n = len(A)
         
@@ -239,13 +246,18 @@ last_duplicate_index_in_a_sorted_array(A)
 
 
 #buy the stock once and sell once. Buying has to happen before.
+# min_price_so_far = store min_price until today 
+# min of today's price and min_price_so_far
+# max_profit_sell_today = what is the profit today (price-min_price_so_far)
+# max_profit = max(max_profit and max_profilt today)
+#
 def buy_and_sell_stock_prices(prices):
     
-    min_price_so_far = prices[0]
-    max_profit  = 0.0
+    min_price_so_far = prices[0]  #initialize with the price on day1
+    max_profit  = 0.0  #max profit is 0 on day 1.
     
     for price in prices:    
-        #today's profit - today's price minus min price.
+        #today's profit - today's price minus min price so far. 
         max_profit_sell_today = price - min_price_so_far
         
         #compare max profit until now and store the max
@@ -294,6 +306,8 @@ print(A[0:k])
 
 #find first elem larger than k in a sorted list
 #divide and conquer 
+#define a variable called result = inf.  
+#keep updating result with A[mid] if A[mid] > k
 #log(N)
 def find_next_higher(A, k):
     
@@ -316,7 +330,10 @@ A = [1,2,3,4,5,6,8,10,12,24,25]
 k = 6
 print("next higher than k {} is".format(k), find_next_higher(A, k))
 
-
+#  using math technique.  
+#Total = sum of values from 0 to n. 
+#Sum_of_array = sum of all values in the input array
+#return total - sum_of_array
 def get_missing_num(A):
     n = len(A)
     total = (n+1) * (n+2) / 2
@@ -330,7 +347,7 @@ print("missing number is ", get_missing_num(A))
 
 #find two elems whose sum is closes to 0
 # sort all elem of input array
-# use lo and high to traverse from left to right.
+# use lo and high to traverse from both sides.
 # sum = a[lo] + a[hi].  if sum1 <= minsum, update minsum.
 #keep track of abs min. Repeat 
 def two_elements_whose_sum_is_closest_to_zero(A):
@@ -377,6 +394,18 @@ two_elements_whose_sum_is_closest_to_zero(A)
 
 #assume no duplicates in an array
 #divide and conquer.
+#while lo < hi:
+#mid = lo + (hi-lo)//2
+#if A[mid] == data then return mid index. 
+# if A[lo] <= A[mid] and 
+    # data is less than A[mid] and data is greater than A[lo]
+    # then hi = mid-1, move towards left subarray
+    # else lo = mid+1 move towards right subarray
+# if A[mid] <= A[hi]
+    # if data >= A[mid] and data is less than A[hi]
+    # then lo = mid+1 move towards right subarray
+    # else hi = mid-1, move towards left subarray
+#return -1
 def search_in_rotated_array(A, data):
     lo = 0
     hi = len(A)-1
@@ -422,15 +451,18 @@ def contiguous_max_sub_array(A):
     for i in range(1, len(A)-1):
         dp.append(A[i] + (dp[i-1] if dp[i-1] > 0 else 0))
         max_sum = max(dp[i], max_sum)
-    
-    
+     
     return max_sum
-   
 
 A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
 print(contiguous_max_sub_array(A))
 
-
+# find  two sum.  
+# Check each value from 0th index. 
+# sum_result = target value - A[index]
+# if sum_result exist in map1. then append the sum_result, A[i] into result list.
+# otherwise continue updating the map with the A[i] value. 
+# return result. 
 def find_two_sum(A, target):
     
     result = []
@@ -457,6 +489,12 @@ print(find_two_sum(A, target))
 #output: [[2, 7]]
 
 
+#Two sum in a sorted array
+# traverse from both sides of the array. lo and hi
+# sum A[lo] and A[hi] and if it matches target, return True
+# if the sum is less than target, then move lo
+#if the sum is greater than target, move hi.
+# Return false if not found.
 def has_two_sum_in_sorted_array(A, target):
 
     lo = 0
@@ -476,6 +514,13 @@ A = [2,7,11,15]
 target = 9
 print("Two sum exists in the array", has_two_sum_in_sorted_array(A, target))
 
+# Two for loops needed.  
+#First for loop from 0 to n-1.  For i in 0 to n.
+# define a set.   calculate currSum = target - A[i]
+# Second for loop one 1 to n.  For j in i+1 to n.
+# if currSum is in the set, then found. print A[i], A[j], currSum-A[j]
+# otherwise value from 2nd for loop into the set.
+#return False.
 def find_three_sum(A, target):
     
     n = len(A)
@@ -507,7 +552,16 @@ A = [1,4,45,6,10,8]
 target = 50
 print("Has three sum", has_three_sum(A, target))
 
-
+#optimal way to merge subfiles
+#merge files of size 4 and 6 first.
+#define heap.
+# Push all elements of the input array into the heap. It will be min heap.
+# define a variable called count=0.  
+# Until there are elements in heap, 
+    #keep popping first two elements. # sum them and store them into a temp
+    #keep summing the temp variable with count variable. 
+    #push the temp variable back into the heap.
+#return 
 import heapq as pq
 def minimumTime(numOfSubFiles, files):   
     h = []  
@@ -525,11 +579,11 @@ def minimumTime(numOfSubFiles, files):
         
     return cnt
     
-files=[4,8,6,12]
+files=[3,6,5,11]
 numOfSubFiles = 4
 min_time = minimumTime(numOfSubFiles, files)
 print(min_time)
-#output 58,  4+6:10,  8+10=18, 12+18=30, 10+18+30
+#output 47,  3+5:8,  6+8=14, 11+14=25, 8+14+25=47
 
 
 #
@@ -539,17 +593,24 @@ def optimalUtilization(deviceCapacity, foregroundAppList, backgroundApplist):
     foregroundMap = {} 
     backgroundMap = {}
     
+    #push all matrix (row, col) elements from foreground list into dictionary.
+    #key = column, value = row. 
     for i in range(0, len(foregroundAppList)): 
         foregroundMap[foregroundAppList[i][1]] = foregroundAppList[i][0]
      
-    
+    # just for validation
     print(foregroundMap)
 
+    #push all matrix (row, col) elements from foreground list into dictionary.
+    #key = column, value = row. 
     for i in range(0, len(backgroundApplist)): 
         backgroundMap[backgroundApplist[i][1]] = backgroundApplist[i][0]    
 
     print(backgroundMap)
     
+    #For each value in foreground map, 
+    #store the subtracted value in sum_minus from target - key (two sum problem)
+    #if the sum minus is in background dictionary, then print both values
     for key, value in  foregroundMap.items():   
         sum_minus = deviceCapacity - key
         
@@ -561,7 +622,6 @@ def optimalUtilization(deviceCapacity, foregroundAppList, backgroundApplist):
             print(result)
             result = []
             
-
 deviceCapacity = 10
 foregroundAppList= [[1,3],[2,5],[3,7], [4,10]]
 backgroundAppList = [[1,2],[2,3],[3,4], [4,5]]
