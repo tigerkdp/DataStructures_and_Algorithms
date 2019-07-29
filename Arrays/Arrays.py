@@ -444,7 +444,7 @@ print("missing number is ", get_missing_num(A))
 
 #Dutch National
 # lo, mid = 0, and hi = len(n)-1
-#if A[mid] and A[lo] ==0, then swap and move lo++,mid++. 
+#if A[mid] ==0, then swap and move lo++,mid++. 
 #else A[mid]==1, the mid++
 #elseif A[mid]==2, then swap with high and hi--
 def DutchNational(A):
@@ -459,7 +459,7 @@ def DutchNational(A):
             mid+=1
        elif A[mid] == 1:
             mid+=1
-       else:
+       else:  #A[mid] ==2
             A[mid], A[hi] = A[hi], A[mid]
             hi-=1
     print(A)
@@ -625,7 +625,7 @@ def contiguous_max_sub_array(A):
     
     dp = []
     #copy first number to new list.
-    dp.insert(0, A[0])
+    dp.append(A[0])
     
     #make the first element as max sum
     max_sum = dp[0]
@@ -634,13 +634,19 @@ def contiguous_max_sub_array(A):
     #Compare with last elem in new list. 
     #Add new list element-1 with A[i] if its greater than 0 else only add A[i]
     for i in range(1, len(A)-1):
-        dp.append(A[i] + (dp[i-1] if dp[i-1] > 0 else 0))
+        if dp[i-1] > 0:
+            dp.append(A[i] + dp[i-1])
+        else:
+            dp.append(A[i])
+            
         max_sum = max(dp[i], max_sum)
      
     return max_sum
 
+
+
 A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
-print(contiguous_max_sub_array(A))
+print("contiguous max subarry ", contiguous_max_sub_array(A))
 
 # find  two sum.  
 # Check each value from 0th index. 
@@ -914,3 +920,43 @@ A[6] = 2
 
 #output
 #(5, 6, 2, 0 )  (4,1) (3).   Max Length 4
+
+
+#Prod without the index
+#prod = 1, prod=1(prod)*2=2, prod=2(prod)*5=8, prod=8(prod)*5=40
+def prod_without_index(A):
+    
+    prod = 1
+    res = []
+    n = len(A)
+    
+    #when item=2, append [1], calculate prod=item*prod,2*1=[2]
+    #when item=4, append [2],  calcuulate  prod=item*prod=4*2=[8],
+    #when item=5 append[8], calculate prod=item*prod=5*8=[40]
+    #when item=6, append[40], calculate prod=item*prod=6*40=[240] = but this is not appended.
+    for item in A:
+        res.append(prod)
+        prod = item * prod    
+    
+    print(res)
+    prod = 1
+    
+        #prod=1
+    #res[3]*prod=40*1 = 40, 
+        #prod =A[3]*prod=6*1=6,      
+    #res[2]*prod= 8*6=48,
+        #prod=A[2]*prod=5*6=30,
+    # res[1]*prod=2*30=60,
+        # prod=A[1]*prod=4*30=120 
+    # res[0]=1*120=120
+    for i in range(n-1,-1,-1):
+        res[i] = res[i]*prod  
+        prod = A[i] * prod      
+        
+    print(res)
+    
+A = [2,4,5,6]
+prod_without_index(A)
+# Res [1, 2, 8, 40]
+#[120, 60, 48, 40]
+
