@@ -456,6 +456,16 @@ print("add digits", add_digits(326))
   
 """
 
+def reverse_sequence(S, lo, hi):
+    if lo < hi:
+        S[lo], S[hi] = S[hi], S[lo] 
+        reverse_sequence(S, lo+1, hi-1)
+   
+
+A= [4,3,6,2,8,9,5]
+reverse_sequence(A, 0, 6)
+print("reversed", A)
+
 def print_digits_reversed_vert(n):
     if n < 10:
         print(n)

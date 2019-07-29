@@ -1093,7 +1093,7 @@ def printSubArrayNew(A):
         for j in range(i+1, n+1): 
             sub = A[i:j]
             sublist.append(sub)
-    print(sublist)
+    print("Print every sublists", sublist)
         
 A = [1,2,3,4]
 printSubArrayNew(A)
@@ -1109,7 +1109,7 @@ def printSubArrayNew1(A):
             sub = A[i:j]
             sublist.append(sub)
     
-    print(sublist)
+    print("Print every sublists", sublist)
     
     minAvg = math.inf
     for i in sublist:
