@@ -5,7 +5,6 @@ Spyder Editor
 This is a temporary script file.
 """
 #Learning Arrays 
-
 def unsorted_linear_search(A, data):
     n = len(A)
     
@@ -15,9 +14,9 @@ def unsorted_linear_search(A, data):
     
     return -1
 
-A = [1,19,5,8,24,3, 12,14,4,2]
-print(unsorted_linear_search(A, 3))
-print(unsorted_linear_search(A, 6))
+A = [1,19,5,8,24,3,12,14,4,2]
+print("Found at position", unsorted_linear_search(A, 3))
+print("Found at position", unsorted_linear_search(A, 6))
 
 #O(N)
 #output: 
@@ -37,8 +36,8 @@ def sorted_search(A, data):
     return -1
 
 A = [1,2,3,4,5,6,8,10,12,24,25]
-print(sorted_search(A, 10))
-print(sorted_search(A, 11))
+print("Found at position", sorted_search(A, 10))
+print("Found at position", sorted_search(A, 11))
 
 #O(N)
 #output
@@ -74,8 +73,8 @@ def Binary_search_iterative(A, data):
     return -1
 
 A = [1,2,3,4,5,6,8,10,12,24,25]
-print(Binary_search_iterative(A, 2))
-print(Binary_search_iterative(A, 25))
+print("Found at position", Binary_search_iterative(A, 2))
+print("Found at position", Binary_search_iterative(A, 25))
 
 #O(logN)
 #1, 10
@@ -95,8 +94,8 @@ def binary_search_recursive(A, lo, hi, data):
         return -1
 
 A = [1,2,3,4,5,6,8,10,12,24,25]
-print(binary_search_recursive(A, 0, len(A)-1, 3))
-print(binary_search_recursive(A, 0, len(A)-1, 24))
+print("Found at ", binary_search_recursive(A, 0, len(A)-1, 3))
+print("Found at ", binary_search_recursive(A, 0, len(A)-1, 24))
 
 #O(logN)
 #2, 9
@@ -105,11 +104,10 @@ print(binary_search_recursive(A, 0, len(A)-1, 24))
 def printKthfromLast(A, k):
     
     #python way
-    print(A[-k])
+    print("Kth from last Python way", A[-k])
     
     lo = 0
     hi = len(A)
-    
     # traverse till K
     while lo < k:
         lo+=1
@@ -120,11 +118,12 @@ def printKthfromLast(A, k):
     while lo < hi:
         kth+=1
         lo+=1
-    print(A[kth])
+    print("Kth from last", A[kth])
     
 A=[1,2,3,4,5,6,7]
 printKthfromLast(A, 4)
 
+#
 def check_duplicates_brute_force(A):
     n = len(A)
     for i in range(0, n):
@@ -159,14 +158,13 @@ check_dups_in_sorted(A)
 
 
 #whether n is even or odd.
-def evenOrodd(n):
+def evenOrOdd(n):
     if n % 2 == 0:
         print("even")
     else:
         print("odd")
         
-evenOrodd(7)
-
+evenOrOdd(7)
 
 #read the array and move even numbers in front of the list
 #and odd numbers in the back.
@@ -211,9 +209,9 @@ def primeList(N):
                 i+=1
         #print(count)
         count +=1
-    print(alist)
+    return alist
     
-primeList(100)
+print("Prime numbers from 1 to n is", primeList(100))
         
 #is prime
 def isPrime(N):
@@ -435,7 +433,6 @@ def sortinWave(A):
     
 A=[6,5,10, 7,13,44,34]
 print(sortinWave(A))
-
 #[6, 5, 10, 7, 34, 13, 44]
 
 print()
@@ -703,6 +700,22 @@ k  = 1
 print("Item found at index ", search_in_rotated_array(A, k))
 
 
+#max subarray
+# max_ending_her: max(x, max_ending_here + x)
+# max_so_far = max(max_so_far, max_ending_here)
+def max_subarray(A):
+    max_ending_here = max_so_far = A[0]
+    for x in A[1:]:
+        max_ending_here = max(x, max_ending_here + x)
+        max_so_far = max(max_so_far, max_ending_here)
+    print(max_so_far)
+    return max_so_far
+
+
+A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
+print("Max subarray", max_subarray(A))
+
+
 #pring the max sum of contiguous data elements.
 print()
 def contiguous_max_sub_array(A):
@@ -726,8 +739,6 @@ def contiguous_max_sub_array(A):
         max_sum = max(dp[i], max_sum)
      
     return max_sum
-
-
 
 A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
 print("contiguous max subarry ", contiguous_max_sub_array(A))
@@ -847,8 +858,7 @@ def minimumTime(numOfSubFiles, files):
     for i in range(0, numOfSubFiles):
         pq.heappush(h, files[i])
         
-    cnt = 0
-    
+    cnt = 0   
     while len(h) > 1:
         
         temp = pq.heappop(h) + pq.heappop(h)
@@ -921,13 +931,15 @@ def localMaxima(A):
     n = len(A)-1
     fs = A[0]
     ls = A[n]
+    res = []
     for i in range(1, n):
         if A[i] > A[i-1] and A[i] > A[i+1]:
-            print(A[i])
+            res.append(A[i])
     if fs > A[1]:
-        print(fs)
+        res.append(fs)
     if ls > A[n-1]:
-        print(ls)
+        res.append(ls)
+    print("Local Maxima ", res)
         
 A = [3,2,33,21,22,11]
 localMaxima(A)  #21 2 11
@@ -939,14 +951,16 @@ def localMinima(A):
     n = len(A)-1
     fs = A[0]
     ls = A[n]
+    res = []
     for i in range(1, n):
         if A[i] < A[i-1] and A[i] < A[i+1]:
-            print(A[i])
+            res.append(A[i])
     if fs < A[1]:
-        print(fs)
+        res.append(fs)
     if ls < A[n-1]:
-        print(ls)
-        
+        res.append(ls)
+    print("Local Minima", res)
+    
 A = [2,3,33,21,22,11]
 localMinima(A)  #21 2 11
 
@@ -1053,3 +1067,56 @@ prod_without_index(A)
 # Res [1, 2, 8, 40]
 #[120, 60, 48, 40]
 
+
+#sum of right side = sum of left side 
+def equilibrium(A):
+    
+    n = len(A)
+    for i in range(0, n):
+        left = sum(A[:i])
+        right = sum(A[i:])
+            
+        if left == right:
+            return True
+    return False    
+            
+A = [5,5,12,10,12]
+print(equilibrium(A))
+
+
+#print all sublist
+def printSubArrayNew(A):
+    
+    n = len(A)
+    sublist=[]
+    for i in range(0, n):
+        for j in range(i+1, n+1): 
+            sub = A[i:j]
+            sublist.append(sub)
+    print(sublist)
+        
+A = [1,2,3,4]
+printSubArrayNew(A)
+
+#
+import math
+def printSubArrayNew1(A):
+    
+    n = len(A)
+    sublist=[]
+    for i in range(0, n):
+        for j in range(i+1, n+1): 
+            sub = A[i:j]
+            sublist.append(sub)
+    
+    print(sublist)
+    
+    minAvg = math.inf
+    for i in sublist:
+        avg = sum(i) // len(i)  
+        if avg < minAvg:
+            minAvg = avg
+    print(minAvg)
+        
+A = [2,3,4,5]
+printSubArrayNew1(A)
