@@ -118,20 +118,20 @@ reverseWordsInSentence(sentence)
 
 
 #hash function
-#for each char, sum=[sum*"Fixed number"*ascii(i) ] mod wordLength
+#for each char, sum = [sum*"Fixed number"*ascii(i) ] mod wordLength
 def stringHash(A):
     sum=0
     Kmul = 997
     n = len(A)
     for i in range(0, n):
-        sum = (sum * Kmul + ord(A[i])) %n 
+        sum = (sum * Kmul + ord(A[i])) % n  
     print(sum)
 
 A = "repeatedly"
 stringHash(A)
 #9
 
-#grou by
+#grop  by
 from itertools import groupby
 def fistCharsofConsChars(aStr):
     n = len(aStr)

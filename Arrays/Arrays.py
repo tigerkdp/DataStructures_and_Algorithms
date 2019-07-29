@@ -101,6 +101,29 @@ print(binary_search_recursive(A, 0, len(A)-1, 24))
 #O(logN)
 #2, 9
         
+#Kth from the last
+def printKthfromLast(A, k):
+    
+    #python way
+    print(A[-k])
+    
+    lo = 0
+    hi = len(A)
+    
+    # traverse till K
+    while lo < k:
+        lo+=1
+       
+    #set kth=0. Continue traversing. Kth++
+    #when reached at end. Kth reaches at the dest.
+    kth=0
+    while lo < hi:
+        kth+=1
+        lo+=1
+    print(A[kth])
+    
+A=[1,2,3,4,5,6,7]
+printKthfromLast(A, 4)
 
 def check_duplicates_brute_force(A):
     n = len(A)
@@ -309,6 +332,35 @@ x = 3
 print("does", x, "appear more than n/2 times in A?",is_majority(AB,n,x))
 #output does 3 appear more than n/2 times in A? True
 
+#Leader
+def LeaderMoreThanHalf(A):
+    li  = {}
+    hi = len(A)
+    lead = hi // 2
+    A.sort()
+    print("lead", lead)
+    for i in range(0, hi):
+        li[A[i]] = li.get(A[i], 0) + 1
+    
+    max = 0
+    item = 0
+    for k, v in li.items():
+        if max < v:
+            max = v
+            item = k
+            
+    if max > lead:
+        return item
+    else:
+        return -1
+    
+#A = [2,2,2,2,2,3, 4,4,4,6]
+A = [1,1,1,1,50, 212443322]
+#A = [-1]
+print("leader more than half", LeaderMoreThanHalf(A))
+
+
+
 #start reading the array from the end. 
 #Check last value and last value - 1. If matching then return
 def last_duplicate_index_in_a_sorted_array(A):
@@ -386,6 +438,31 @@ print(sortinWave(A))
 
 #[6, 5, 10, 7, 34, 13, 44]
 
+print()
+# Rotate
+def rotateArray(A, d):
+    
+    n = len(A)-1
+    templist = []
+    for i in range(0, n):
+        if i < d:
+            templist.append(A[i])
+            A.append(templist[i])
+        else:
+            pass
+
+    nk = len(templist)-1
+    for i in range(nk,-1,-1):
+        #very slow as it moves
+        A.pop(i)
+    
+    print("Rotated Array")
+    print(A, end=" ")
+       
+A = [1,2,3, 4,5,6,7]
+rotateArray(A, 3)
+
+print()
 #Given an array return a random subset of the given size of the array elemts
 import random
 def random_sampling(A, k):
@@ -400,6 +477,7 @@ random_sampling(A, k)
 print(A[0:k])
 
 
+print()
 #find first elem larger than k in a sorted list
 #divide and conquer 
 #define a variable called result = inf.  
@@ -426,6 +504,7 @@ A = [1,2,3,4,5,6,8,10,12,24,25]
 k = 6
 print("next higher than k {} is".format(k), find_next_higher(A, k))
 
+print()
 #  using math technique.  
 #Total = sum of values from 0 to n. 
 #Sum_of_array = sum of all values in the input array
@@ -438,10 +517,10 @@ def get_missing_num(A):
 
 A = [1,2,4,5,6]
 print("missing number is ", get_missing_num(A))
-
 #output 3
 
 
+print()
 #Dutch National
 # lo, mid = 0, and hi = len(n)-1
 #if A[mid] ==0, then swap and move lo++,mid++. 
@@ -462,11 +541,12 @@ def DutchNational(A):
        else:  #A[mid] ==2
             A[mid], A[hi] = A[hi], A[mid]
             hi-=1
-    print(A)
+    print("Dutch National:", A)
     
 A=[1,0,2,0,1,0,0,1,2,2,1,0]
 DutchNational(A)
 
+print()
 #Common elements in 3 sorted arrays
 # while lo < hi. 
     #if A[lo] == B[lo] == c[lo], alo++, blo++,clo++
@@ -479,7 +559,7 @@ def InterSect1(A, B,C):
     Clo , Chi = 0, len(C)
     while Alo < Ahi and Blo < Bhi and Clo < Chi:
         if A[Alo] == B[Blo] and B[Blo] == C[Clo]:
-            print(A[Alo])
+            print("Interseciton element:", A[Alo])
             Alo +=1 
             Blo +=1
             Clo +=1
@@ -499,6 +579,7 @@ C = [3,4,5]
 InterSect1(A, B,C)
 
 
+print()
 #Merge two sorted arrays.
 #define result list = c. 
 # Alo, Blo, Ahi, Bhi. 
@@ -535,6 +616,7 @@ mergeTwoSortedArrays(A, B)
 # use lo and high to traverse from both sides.
 # sum = a[lo] + a[hi].  if sum1 <= minsum, update minsum.
 #keep track of abs min. Repeat 
+print()
 def two_elements_whose_sum_is_closest_to_zero(A):
     
     lo = 0
@@ -591,6 +673,7 @@ two_elements_whose_sum_is_closest_to_zero(A)
     # then lo = mid+1 move towards right subarray
     # else hi = mid-1, move towards left subarray
 #return -1
+print()
 def search_in_rotated_array(A, data):
     lo = 0
     hi = len(A)-1
@@ -621,6 +704,7 @@ print("Item found at index ", search_in_rotated_array(A, k))
 
 
 #pring the max sum of contiguous data elements.
+print()
 def contiguous_max_sub_array(A):
     
     dp = []
@@ -654,6 +738,7 @@ print("contiguous max subarry ", contiguous_max_sub_array(A))
 # if sum_result exist in map1. then append the sum_result, A[i] into result list.
 # otherwise continue updating the map with the A[i] value. 
 # return result. 
+print()
 def find_two_sum(A, target):
     
     result = []
@@ -676,7 +761,7 @@ def find_two_sum(A, target):
 
 A = [2,7,11,15]
 target = 9
-print(find_two_sum(A, target))
+print("Two elements sum matching target", find_two_sum(A, target))
 #output: [[2, 7]]
 
 
@@ -686,6 +771,7 @@ print(find_two_sum(A, target))
 # if the sum is less than target, then move lo
 #if the sum is greater than target, move hi.
 # Return false if not found.
+print()
 def has_two_sum_in_sorted_array(A, target):
 
     lo = 0
@@ -703,7 +789,7 @@ def has_two_sum_in_sorted_array(A, target):
 
 A = [2,7,11,15]
 target = 9
-print("Two sum exists in the array", has_two_sum_in_sorted_array(A, target))
+print("Two elements sum in the array", has_two_sum_in_sorted_array(A, target))
 
 # Two for loops needed.  
 #First for loop from 0 to n-1.  For i in 0 to n.
@@ -712,6 +798,7 @@ print("Two sum exists in the array", has_two_sum_in_sorted_array(A, target))
 # if currSum is in the set, then found. print A[i], A[j], currSum-A[j]
 # otherwise value from 2nd for loop into the set.
 #return False.
+print()
 def find_three_sum(A, target):
     
     n = len(A)
@@ -733,7 +820,7 @@ target = 50
 print(find_three_sum(A, target))
 #output
 #Triplet is  1 45 4
-
+print()
 def has_three_sum(A, target):
 
     A.sort()
@@ -753,6 +840,7 @@ print("Has three sum", has_three_sum(A, target))
     #keep summing the temp variable with count variable. 
     #push the temp variable back into the heap.
 #return 
+print()
 import heapq as pq
 def minimumTime(numOfSubFiles, files):   
     h = []  
@@ -773,11 +861,13 @@ def minimumTime(numOfSubFiles, files):
 files=[3,6,5,11]
 numOfSubFiles = 4
 min_time = minimumTime(numOfSubFiles, files)
-print(min_time)
+print("Organize files pattern", min_time)
 #output 47,  3+5:8,  6+8=14, 11+14=25, 8+14+25=47
 
 
-#
+# Two sum between two input matrix matching target
+# two dictionary, 
+print()
 def optimalUtilization(deviceCapacity, foregroundAppList, backgroundApplist):
     
     result = []
@@ -826,6 +916,7 @@ optimalUtilization(deviceCapacity, foregroundAppList,backgroundAppList )
 
 
 #Local Maxima
+print()
 def localMaxima(A):
     n = len(A)-1
     fs = A[0]
@@ -843,6 +934,7 @@ localMaxima(A)  #21 2 11
 
 
 #Local Minima
+print()
 def localMinima(A):
     n = len(A)-1
     fs = A[0]
@@ -860,6 +952,7 @@ localMinima(A)  #21 2 11
 
 
 #Clycic rotation
+print()
 def cyclicRotationUnSorted(A, K):
     
     result = []
@@ -876,7 +969,7 @@ cyclicRotationUnSorted(A, 3)
 
 
 #Necklace Beads
-
+print()
 def necklaceBeads(A):
     j = 0
     hi = len(A)-1
@@ -905,7 +998,7 @@ def necklaceBeads(A):
             break    
     
     #print(dict1)
-    print(max_counter)
+    print("Max beads found in a necklace", max_counter)
     
 A = [5, 4, 0, 3, 1, 6, 2]
 necklaceBeads(A)
@@ -924,6 +1017,7 @@ A[6] = 2
 
 #Prod without the index
 #prod = 1, prod=1(prod)*2=2, prod=2(prod)*5=8, prod=8(prod)*5=40
+print()
 def prod_without_index(A):
     
     prod = 1
@@ -938,7 +1032,6 @@ def prod_without_index(A):
         res.append(prod)
         prod = item * prod    
     
-    print(res)
     prod = 1
     
         #prod=1
@@ -953,7 +1046,7 @@ def prod_without_index(A):
         res[i] = res[i]*prod  
         prod = A[i] * prod      
         
-    print(res)
+    print("Prod of all elements besides self", res)
     
 A = [2,4,5,6]
 prod_without_index(A)

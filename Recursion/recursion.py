@@ -992,8 +992,6 @@ print("is list sorted", is_list_sorted(AZ, n))
        
 """
 
-
-
 def select_sort_rec(a):
     if len(a) <= 1:
         return a

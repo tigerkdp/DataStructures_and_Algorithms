@@ -41,6 +41,14 @@ def evenOrodd(n):
         
 evenOrodd(7)
 
+#power - recursive
+def powerOf(n, k):
+    if k < 2:
+        return n
+    else:
+        return n* powerOf(n, k-1)
+    
+print(powerOf(4, 3))
 
 #read the array and move even numbers in front of the list
 #and odd numbers in the back.
