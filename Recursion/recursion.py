@@ -727,25 +727,40 @@ def longest_palindromic_substring(s):
         aux1 = longest_palindromic_substring(s[1:n])
         aux2 = longest_palindromic_substring(s[0:n-1])
         if len(aux1) > len(aux2):
+            print(aux1)
             return aux1
         else:
+            print(aux2)
             return aux2
+        print("aux3")
 
 print("longest palindromic substring is", longest_palindromic_substring("yayi"))
 #longest palindromic substring is nayan
 
 #the length is checked in case there are two palindromes returned
 
-"""  
-                 1 yayi
-               /  yay   \
-              /          \
-          2 ayi         9  yay
-          /       \       aux2 = "yay" 
-       3 yi      6 ay
-       /  \      /    \
-    4 i   5 y  7 y   8  a
 """
+              
+  
+                 1 yayi
+               / 13.ret \
+               /    yay  \
+              /           \
+             /             \
+          2 ayi             12  yay
+          /      \          aux2 = "yay" 
+         /11.ret a\
+        /          \
+       3  yi          7 ay
+      / 6  \             /  \
+      /ret y\           /   \
+     /       \         / 10. \
+     /        \       /ret a  \
+    /          \      /        \
+    4         5 y    /          \
+  aux1=i     aux2=y  8 y         9 a
+                   aux1=y        aux2=a             
+"""              
 
 
 def equal_strings(s,t):
@@ -922,9 +937,9 @@ print("binary search in a list" , binary_search(bb, 56, 0, len(bb)-1))
                                  \
                                   \ 56 > 55 (A[6])
                            bs(56, 78)  x = 56, 7+8//2 = 7
-                           \
-                            \ 56 == 56  x==(A[7])
-                            return 7
+                                \
+                                 \ 56 == 56  x==(A[7])
+                              return 7
     
 """
 
@@ -1229,9 +1244,11 @@ print("Possible ways a child can jump", steps_possible(3))
             1               steps_possible(3)   
                 /               1 + 2+1+0                           \ 
                /                        |                            \ 
-         2   steps_possible (2)          9 steps_possible(1)        13 steps(0)
+              /                         |                             \
+            2   steps_possible (2)       9 steps_possible(1)        13 steps(0)
           /   ret 1+1+0+0  | \            | ret 1 +0+0+0    \       ret 0
          /                 |  \           |          \       \
+        /                  |   \          |           \       \
     3  steps_poss(1) 7steps(0) \          10 st(0), 11 st(-1), 12 st(-2)
       / ret 1 |    \   ret 0   8 steps(-1)   ret 0     ret 0   ret 0
 4    /        |      \           ret 0

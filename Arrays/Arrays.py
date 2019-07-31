@@ -157,6 +157,27 @@ check_dups_in_sorted(A)
 #O(NLogN) - NLogN due to sorting.
 
 
+def check_dups_within_k_unsorted(A, n, k):
+    
+    my_set = []
+    for i in range(0, n):
+        if A[i] in my_set:
+            return True
+        
+        my_set.append(A[i])
+        
+        if i > k:
+            my_set.remove(A[i-k])
+    return False
+
+
+A = [10,5,3,4,3,5,6]
+n = len(A)
+if check_dups_within_k_unsorted(A, n, 3):
+    print("Yes Dups within k distance")
+else:
+    print("No dups with k distance")
+
 #whether n is even or odd.
 def evenOrOdd(n):
     if n % 2 == 0:
@@ -711,9 +732,46 @@ def max_subarray(A):
     print(max_so_far)
     return max_so_far
 
-
 A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
 print("Max subarray", max_subarray(A))
+
+"""
+max_ending_here = -2. max_so_far = -2
+for x in A[1:]
+    x=1 
+    max_ending_here = max(1, -2+1=-1) = 1
+    max_so_far = max(-2, 1) = 1
+    
+    x=-3
+    max_ending_here = max(-3, 1-3=-2) = -2
+    max_so_far = max(1, -2) = 1
+    
+    x=4
+    max_ending_here  = max(4, -2+4) = 4 
+    max_so_far = max(1, 4) = 4
+    
+    x=-1
+    max_ending_here = max(-1, 4-1) = 3
+    max_so_far =  max(4, 3)  = 4
+    
+    x = 2 
+    max_ending_here = max(2, 3+2) = 5
+    max_so_far =   max(4, 5) = 5 
+    
+    x = 1
+    max_ending_here = max(1, 5+1)  = 6
+    max_so_far =  max(5, 6)  = 6
+    
+    x=-5
+    max_ending_here = max(-5, 6-5) = 1
+    max_so_far = max(6, 1) = 6
+    
+    x=4
+    max_ending_here = max(4, 1+4) = 5
+    max_so_far = max(6, 5)
+
+
+"""
 
 
 #pring the max sum of contiguous data elements.
@@ -742,6 +800,12 @@ def contiguous_max_sub_array(A):
 
 A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
 print("contiguous max subarry ", contiguous_max_sub_array(A))
+
+
+
+
+
+
 
 # find  two sum.  
 # Check each value from 0th index. 
