@@ -360,8 +360,68 @@ class BinaryTree:
                 print(p.info,  end=" ")
                 p = p.right
                 
+    """
+     3
+   2    5
+ 4  1   
+ 
+         p = 3
+         stack = []
+         while stack or p
+           if p=3 is not None
+              stack = append p=3 [3]
+              p = 2, p.left
+             
+         while stack or p:
+            if p = 2 is not none:
+                stack = append p = 2  [3,2]
+                p = 4, p.left
+                
+        while stack or p:
+            if p = 4 is not None:
+                stack = [3,2,4]
+                p = None, 4.left, p.left
+                
+        while stack or p:
+            p is None:
+            else:
+            p = 4 stack.pop, stack [3,2]
+            print 4
+            p = None. 4.right, p.right
+            
+        while stack or p:
+            p is None
+            else:
+            p = 2 stack.pop   stack[3]
+            print 2
+            p = 1, 2.right p.right
+            
+        while stack or p:
+            if p = 1 is not None:
+              stack = [3,1]
+              p = None, 1.left, p.left
+            
+        while stack or p:
+            p is None
+            else:
+            p = 1 stack.pop  [3]
+            print 1 
+            p = None, 1.right, p.right
+            
+        while stack or p:
+            p is none:
+            else:
+            p = 3, stack.pop  []
+            print 3
+            p = 5
+            p = None. 5.left p.left
 
-     #p=root. definestack, 
+        while stack or p: fails.
+        return
+    """             
+                
+                
+    #p=root. definestack, 
     #while stack or p, if p is not None, append(p), p=p.left.  
     #else,p=pop(), if kth==k print value return, else kth++ p=p.right
     def kth_node_in_order(self, k):
@@ -471,7 +531,11 @@ class BinaryTree:
                 else:
                     visited.add(p)
                     print(p.info, end=" ")
-                    p = None                
+                    p = None      
+                    
+                    
+                    
+                    
 
     #add root to queue. pop queue. print info. add left. add right.
     def level_order_traversal(self):
@@ -672,13 +736,13 @@ class BinaryTree:
       /   15.ret 2          \                    /                \
      /                       \                  /                  \
     3.  LCA (4, 20, 5)     13. LCA(5, 20, 5)   17. LCA(6,        23 LCA(7, 20, 5)
-    /  12. ret right=20 \   14. Ret 5            20, 5)  \        24 LCA(None, 20,5) 25 Ret None (left)
-   /     left=None       \                     /          \       26 LCA(None, 20,5) 27 Ret None (right)
-  /                       \                   /  22. rNone \
- 4. LCA(9, 20, 5)   10.LCA(20,20,5)          /              \     
- |  9. R None   \   11. Ret 20               18. LCA(None,  20. LCA(None,
- |               \                                 20,5)          20,5)
- |                |                          19. Ret None    21. Ret None
+    /  12. ret right=20 \   14. Ret 5            20, 5)  \        24 LCA(None, 20,5) 
+   /     left=None       \                     /          \             25 Ret None (left) 
+  /                       \                   / 22. rNone \       26 LCA(None, 20,5) 
+ 4. LCA(9, 20, 5)   10.LCA(20,20,5)          /              \           27 Ret None (right)
+ |  9. R None   \   11. Ret 20         18. LCA(None,       20. LCA(None,
+ | left=None     \                         20,5)            20,5)
+ | right=None    |                    19. Ret None          21. Ret None
  5. LCA(None,   7. LCA(None,                
         20, 5)      20, 5)      
  6. Return None     8.Return None
@@ -707,18 +771,19 @@ class BinaryTree:
                1. call SR(5)
              /  l=3, r=2 + 1  \
             /    r=6           16. SR(2)  ------------23.  SR(None) 
-       2. call SR(3)              | 24.r1+0+1=2       24. R0
+           /                      | 25.r1+0+1=2            24. R0
+        2. call SR(3)             |       
         /   l=1, r=1 \            |
        /    15. r=3   \           17. SR(3)
-       /               \          | 22 r1 \
-      /                \          |         \
-     /                  \         19. SR(N)   \
+       /               \          | 22 r1   \
+      /                \          |          \
+     /                  \         19. SR(N)    \
     /                    \          19. r 0    20. SR(N)
-   /                      \                   21. r 0 
-   3 call SR(4)        9 SR(1)
-     / 8 R0+0+1\        |  14r=1 \
-    /             \     |         \
- 4. SR(None) 6.SR(None) 10.SR(None)\
+   /                      \                    21. r 0 
+   3 call SR(4)           9 SR (1)
+     / 8 R0+0+1\         |  14 r=1  \
+    /           \        |           \
+ 4. SR(None) 6.SR(None) 10.SR(None)   \
 5. ret 0     7. ret 0    11 ret 0   12 SR(None)
                                     13. ret 0
                                     
