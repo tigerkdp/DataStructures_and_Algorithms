@@ -1308,7 +1308,7 @@ print("coin change counts", count(arr, m, 4))
                         
                       
 """
-print("print all subsets")
+print("print all subsets or combinations")
 def print_subsets(n, curr, res):
     if curr == 0:
         print(res)

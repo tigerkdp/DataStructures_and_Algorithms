@@ -1,10 +1,28 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+Array
 """
 #Learning Arrays 
+
+def list_print(An):
+    
+    for i in An:
+        print(i, end =" ")
+    print()
+            
+An = [1,19,5,8,24,3,12,14,4,2]
+list_print(An)
+
+def print_list_comb(lst):
+    
+    for item in lst:
+        for item2 in lst:
+            print(item, item2)
+    
+lst = [1,2,3]
+print_list_comb(lst)
+
+
 def unsorted_linear_search(A, data):
     n = len(A)
     
