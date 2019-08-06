@@ -904,9 +904,6 @@ print("contiguous max subarry ", contiguous_max_sub_array(A))
 
 
 
-
-
-
 # find  two sum.  
 # Check each value from 0th index. 
 # sum_result = target value - A[index]
