@@ -627,7 +627,6 @@ print("power is", power_is(2, 3))
 
 """
 
-
 def power_alt(x, y):
     if y == 0:
         return 1

@@ -22,6 +22,18 @@ def print_list_comb(lst):
 lst = [1,2,3]
 print_list_comb(lst)
 
+"""
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3
+
+"""
 
 def unsorted_linear_search(A, data):
     n = len(A)
@@ -75,6 +87,24 @@ def isListSorted(A, index):
 A=[1,2,3,4,5,6]
 isListSorted(A, len(A)-1)
 
+
+#Sum of all unique elements
+def sum_unique_elements(A):
+    
+    sum1 = A[0]
+    A1=set()
+    for i in range(1, len(A)):
+        if A[i] not in A1:
+            sum1 += A[i]
+        A1.add(A[i])
+    
+    print("Sum of all unique elements", sum1)
+    
+A=[1,2,2,4,4,6]
+sum_unique_elements(A)
+#Sum of all unique elements 13
+
+#Binary Search / Divide and Conquery
 #constraint - sorted
 def Binary_search_iterative(A, data):
     lo = 0
@@ -97,7 +127,7 @@ print("Found at position", Binary_search_iterative(A, 25))
 #O(logN)
 #1, 10
 
-#recursion. divide and conquer
+#recursion. Binary Search divide and conquer
 def binary_search_recursive(A, lo, hi, data):
 
     if hi >= lo:
@@ -117,7 +147,25 @@ print("Found at ", binary_search_recursive(A, 0, len(A)-1, 24))
 
 #O(logN)
 #2, 9
+     
+
+#Reverse an array 
+def reverse_list(A):
+    
+    lo = 0
+    hi = len(A)-1
+    while lo < hi:
+        A[lo], A[hi] = A[hi], A[lo]
+        lo +=1
+        hi -=1
+    print("Reversed Array", A)
         
+
+A = [1,19,5,8,24,3,12,14,4,2]
+reverse_list(A)
+#Reversed Array [2, 4, 14, 12, 3, 24, 8, 5, 19, 1]
+
+
 #Kth from the last
 def printKthfromLast(A, k):
     
@@ -205,6 +253,7 @@ def evenOrOdd(n):
         
 evenOrOdd(7)
 
+#Segregage even and odd numbers
 #read the array and move even numbers in front of the list
 #and odd numbers in the back.
 def even_odd(A):
@@ -261,6 +310,20 @@ def isPrime(N):
        
 print(isPrime(67))
 
+
+#split the array and add the first part to the end
+
+def split_add_to_end(A, k):
+    
+    for i in range(0, k):
+        A.append(A[0])  #as we r popping, we only have to select A[0]
+        A.pop(0)        #once popped the rest of the elements shift
+
+    print("Added at the end", A)
+    
+A = [12,10,4,5,6,32,43]
+split_add_to_end(A, 3)
+
 #have to return the index of the array
 #or set the remaining values to None.
 #and only print the values that are not None.
@@ -300,6 +363,24 @@ max1 = find_max_elem_in_array(A)
 print("\nLargest elem is", max1)
 
 
+#max diff between two elements in an array
+def max_difference(A):
+    
+    max1 = float("-inf")
+    min1 = float("inf")
+    
+    for i in A:
+        if i > max1:
+            max1 = i
+        if i < min1:
+            min1 = i
+        
+    max_diff = max1 - min1 
+    print("maximum difference in an array", max_diff)
+    
+A = [10,324,45, 90, 100]
+max_difference(A)
+#maximum difference in an array 314
 
 #Element appears max # of times 
 #use hash table
@@ -326,7 +407,6 @@ max_appearance(A)
 
 #function to find a given integer x appears more than n/2 times
 #divide and conquer using binary search
-
 #helper binary search function
 def binary_search_alt(A, lo, hi, data):
 
@@ -369,7 +449,9 @@ x = 3
 print("does", x, "appear more than n/2 times in A?",is_majority(AB,n,x))
 #output does 3 appear more than n/2 times in A? True
 
+
 #Leader
+#usign Hash Table 
 def LeaderMoreThanHalf(A):
     li  = {}
     hi = len(A)
@@ -422,7 +504,6 @@ last_duplicate_index_in_a_sorted_array(A)
 # min of today's price and min_price_so_far
 # max_profit_sell_today = what is the profit today (price-min_price_so_far)
 # max_profit = max(max_profit and max_profilt today)
-#
 def buy_and_sell_stock_prices(prices):
     
     min_price_so_far = prices[0]  #initialize with the price on day1
@@ -503,14 +584,15 @@ print()
 import random
 def random_sampling(A, k):
     
-    for i in range(k):
+    for i in range(0, k):
         r = random.randint(i, len(A)-1)
         A[i], A[r] = A[r], A[i]
         
 A = [3,7,5,11]
 k = 3
 random_sampling(A, k)
-print(A[0:k])
+print("Random Sampling from 0 to k", A[0:k])
+#Random Sampling [7, 5, 3]
 
 
 print()
