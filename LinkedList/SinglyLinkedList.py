@@ -727,7 +727,74 @@ class LinkedList:
         
         pal_check = self.is_list_palindrome()
         print("list is", pal_check)
+        
+        
+    # Merging two sorted list
+    # Merging creating a new list
+    # Merging by rearranging links
+
+    # Merging by creating new list.  Size of both lists can be diff
+    # Define P1 and P2.  Compare both.  Add smaller one to new list pM. pM is maintained at the end
     
+    # Original list do not change
+    def merge(self, p1, p2):
+        
+        if p1.info <= p2.info:
+            startM = Node(p1.info)
+            p1 = p1.link
+        else:
+            startM = Node(p2.info)
+            p2 = p2.link
+            
+        pM = startM
+        while p1 is not None and p2 is not None:
+            if p1.info <= p2.info:
+                pM.link = Node(p1.info)
+                p1 = p1.link
+            else:
+                pM.link = Node(p2.info)
+                p2 = p2.link
+                
+        while p1 is not None:
+            pM.link = Node(p1.info)
+            p1 = p1.link
+            
+        while p2 is not None:
+            pM.link = Node(p2.info)
+            p2 = p2.link
+            
+        return startM
+    
+    #Merge by rearranging links. 
+    def merge_rearrage(self, p1, p2):
+        
+        if p1.info < p2.info:
+            startM = p1
+            p1 = p1.link
+        else:
+            startM = p2
+            p2 = p2.link
+            
+        pM = startM
+        
+        while p1 is not None and p2 is not None:
+            if p1.info <= p2.info:
+                pM.link = p1
+                pM = pM.link
+                p1 = p1.link
+            else:
+                pM.link = p2
+                pM = pM.link
+                p2 = p2.link
+                
+        if p1 is None:
+            pM.link = p2
+        else:
+            pM.link = p1
+            
+        return startM
+        
+
 #test
 
 L = LinkedList()
