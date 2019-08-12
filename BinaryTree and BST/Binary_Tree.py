@@ -87,9 +87,6 @@ class BinaryTree:
         self.display(p.left, level+1)
         
         
-
-        
-        
     #recursively delete a node
     #like a BST deletion.
     def deleteNode(self, p, key):
@@ -102,23 +99,25 @@ class BinaryTree:
         elif key > p.info:   
             p.right = self.deleteNode(p.right, key)
         else:  #if equal to root.
+            #key to be deleted is found
             
-            if p.left == None:    
-                temp = p.right  
-                p = None
-                return temp       #return temp
-            elif p.right == None:
-                temp = p.left  
-                p = None        #set root to None
-                return temp        #retutn temp
-            
-            if temp != None:
-                p.info = temp.info
-        
-            # if either child of root are not null, 
-            # then make right child as root
-            p.right = self.deleteNode(p.right, p.info)        
+            #has two children
+            if p.left is not None and p.right is not None:    
+                s = p.right  
+                while s.left is not None:  #inorder successor
+                    s = s.left    
+                p.info = s.info #copy the inorder succ node to the key
+                p.right = self.deleteNode(p.right, s.info) #call delete on right child
+                
+            else: #1 child or no child
+                if p.left is not None:  #only left child 
+                    ch = p.left         #set p.left to child
+                else: #only right child or no child
+                    ch = p.right
+                p = ch
+                  
         return p
+    
 
     # recursively delete the tree.
     def delete_binary_tree_rec(self, root):
@@ -532,9 +531,116 @@ class BinaryTree:
                     visited.add(p)
                     print(p.info, end=" ")
                     p = None      
-                    
-                    
-                    
+  
+    """      
+                  1                           
+              2       3                
+          4     5  6     7
+          
+    postorder -  4 5 2 6 7 3 1 
+
+    stack = [],  p = node of 1,  visited = ()
+
+    while stack or p:  
+        p != None, p = 1 
+        append p  to stack = [1], visited = ()
+        now set p = 2  (1.left) 
+        
+        p != None, p=2,  visited = (), stack=[1]
+        append 2 to stack = [1, 2]
+        now set p = 4 (2.left)
+         
+        p != None, p = 4, visited = (),  stack = [1,2]
+        append 4 to stack = [1,2,4]
+        now set p = None  (4.left)
+        
+        p = None,  
+        pop from stack and set it to p = 4.  stack is now [1,2]
+        if 4.right != None
+            set visited to 4
+            print 4...............................................4
+            p = None
+        
+        p = None, visited = (4), stack = [1,2]
+        pop from stack and set it to p = 2   stack is now [1]
+        if 2.right != None, (5).
+            append 2 to stack = [1,2]
+            now set p = 5, 2.right
+        
+        p != None, p = 5, visited = (4), stack = [1,2]
+        append p to stack = [1,2,5]
+        now p = None, 5.left
+        
+        p = None, visited(4), stack = [1,2,5]
+        pop 5 from stack and set it to p=5.  stack is now [1,2]
+        if 5.right is None
+            add 5 to visited. Visited is now (4,5)
+            print(5)...............................................5
+            p = None
+            
+        p = None, visited = (4,5), stack = [1,2]
+        pop from stack and set it to p = 2.  stack is now [1]
+        if 2.right which is 5 is not None but it is in Visited:
+            add 2 to visited.  Visited is now (4,5,2)
+            print(2)..............................................2
+            p = None
+            
+        p = None, visited = (4,5,2), stack = [1]
+        pop from stack and set it to p=1, stack is now []
+        if 1.right 3 is not None and is not visited
+            append 1 to stack. Stack is now [1]
+            p = 3. 1.right
+            
+        p != none. p= 3,  visited = (4,5,2), stack = [1]
+        append 3 to stack.  Stack = [1,3]
+        p = 6, 3.left
+        
+        p!= None, p = 6.  visited = (4,5,2), stack = [1,3]
+        append 6 to stack.  Stack = [1,3,6]
+        p = None. 6.left
+        
+        p = None. visited = (4,5,2)  stack = [1,3,6]
+        pop from stack and set it to p = 6.  Stack is now [1,3]
+        if 6.right is None. 
+            add 6 to visited. Visited is now (4,5,2,6)
+            print 6..............................................6
+            p = None
+            
+        p = None. visited = (4,5,2,6). stack = [1,3]
+        pop from stack and set p  to 3.  stack = [1]
+        if p.right != not None and 7 is not in visited.
+            append 3 to stack. stack is now [1,3]
+            p = 7.  3.right
+        
+        p != none. p=7 visited = (4,5,2,6), stack = [1,3]
+        append 7 to stack.  stack = [1,3,7]
+        p = None. p.left
+        
+        p=None. stack = [1,3,7]
+        pop from stack and set is to 7. stack = [1,3]
+        if 7.right is None
+        add 7 to visited. Visited = (4,5,2,6,7)
+        print 7.................................................7
+        p = None
+
+    
+        p = None. stack = [1,3]
+        pop from stack and set it to 3. stack = [1]
+        if 3.right is not None and 3.right is not in visited = false
+        add 3 to visited. Visited = (4,5,2,6, 7,3)
+        print 3.................................................3
+        p = None
+        
+        p = None. stack = [1]
+        pop from stack and set it to 1.  stack = []
+        if 1.right is Not node and 1.right is not in visited = false
+        add 1 to visited. Visited = (4,5,2,6,7,3,1)
+        print 1.................................................1
+        p = none
+        
+        stack = [] and p = None. Come out of the loop
+
+    """                  
                     
 
     #add root to queue. pop queue. print info. add left. add right.
@@ -1207,28 +1313,7 @@ class BinaryTree:
   1   5 6   7
   
   Diam =5 
-  
-          1) call diam(4)    --root
-             2) call height(3)     --4.left
-                 3) call height(1)     --3.left
-                     4) call height(None)  - 1.left
-                         4r) return 0
-                     5) call height(None)  -1.right
-                         5r) return 0
-                     left = 0, right = 0
-                     6) call diam(None)  -1.right
-                                        
-     
-                     
-     
-     
-                 6) call height(5)     --3.right
-                     7) call height(None) --5.left
-                         7r) return 0   
-                     8) call height(none) --5.right
-                         8r) return 0
-                     
-    
+
     
     """
          
@@ -1819,7 +1904,13 @@ BT1.add_iter(BT1.root, 16)
 BT1.display(BT1.root,0)
 BT1.deleteNode(BT1.root, 4)
 print()
-print("Node 4 removed. Display Tree again")
+print("Node 4 removed which had no children. Display Tree again")
+BT1.display(BT1.root,0)
+
+print()
+BT1.deleteNode(BT1.root, 15) 
+print()
+print("Node 15 removed which had two rows. Display Tree again")
 BT1.display(BT1.root,0)
 
 print()
