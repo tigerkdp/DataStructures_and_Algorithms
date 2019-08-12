@@ -1536,7 +1536,31 @@ class BinaryTree:
                 if popped.left is not None:
                     q.append(popped.left)
                 count -=1
+   
+         
+    def right_view_alt(self, root):
+        if root is None:
+            return
+        
+        qu = []
+        qu.append(self.root)        
+        while 1:
+            nodeCount = len(qu)    #node count will be 1 at level1, 2 at level 2, 4 at level 3 etc.
+            if nodeCount == 0:
+                break
             
+            while nodeCount > 0:
+                popped = qu.pop(0)   #pop from queue                
+            
+                if popped.left is not None:    #add left 
+                    qu.append(popped.left)
+                
+                if popped.right is not None:     #add right
+                    qu.append(popped.right) 
+                
+                nodeCount -=1       #decrement node count. After all nodes are printed at each level, nodecount will go back to 0
+            
+            print(popped.info, end=" ")
     
             
     def left_view_rec(self, root):
@@ -1554,6 +1578,31 @@ class BinaryTree:
         self.left_view_util(root.right, level+1, max_level)
         
     
+    def left_view_iter(self, root):
+        
+        qu = []
+        qu.append(self.root)
+        
+        while 1:
+            nodeCount = len(qu)    #node count will be 1 at level1, 2 at level 2, 4 at level 3 etc.
+            if nodeCount == 0:
+                break
+            
+            left_node = 1
+            while nodeCount > 0:
+                popped = qu.pop(0)   #pop from queue                
+                if left_node == 1:                        
+                    print(popped.info, end=" ")
+            
+                if popped.left is not None:    #add left 
+                    qu.append(popped.left)
+                
+                if popped.right is not None:     #add right
+                    qu.append(popped.right) 
+                
+                nodeCount -=1       #decrement node count. After all nodes are printed at each level, nodecount will go back to 0
+                left_node +=1
+                
     #queue, append root. dict. pop. if hd not in ht. add hd=info
     #if left, left.hd-1, append. #if right, right.hd+1, append.
     def top_view(self, root):
@@ -1600,7 +1649,7 @@ class BinaryTree:
         return 
         
     #select elem from preorder using preindex.     
-    #create new node with the data selected from preorder
+    #create new node with the data selected from preorderr
     #find the index of the new node element in inorder list
     #call build tree for elem before in_index and make the tree as left tree of newNode
     #call build tree for elem after in_index and make the tree as right subtree of newNode
@@ -1849,11 +1898,17 @@ print()
 BT.right_view(BT.root)
 print()
 
+BT.right_view_alt(BT.root)
+print()
+
 print()
 print("Left View of the tree (recur) is:")
 BT.left_view_rec(BT.root)
 print()
 
+print("Left view iterative of the tree is: ")
+BT.left_view_iter(BT.root)
+print()
 
 print()
 print("#---------Remove node 4 from the tree------#")
