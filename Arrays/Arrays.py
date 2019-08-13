@@ -579,6 +579,40 @@ def rotateArray(A, d):
 A = [1,2,3, 4,5,6,7]
 rotateArray(A, 3)
 
+
+#Common elements in 3 sorted arrays
+# while lo < hi. 
+    #if A[lo] == B[lo] == c[lo], alo++, blo++,clo++
+    #else A[lo] < B[lo], then alo++
+    #else B[lo] < c[lo], then blo++
+    #slse clo++
+print()
+def InterSect1(A, B,C):
+    Alo, Ahi = 0, len(A)
+    Blo, Bhi = 0, len(B)
+    Clo , Chi = 0, len(C)
+    while Alo < Ahi and Blo < Bhi and Clo < Chi:
+        if A[Alo] == B[Blo] and B[Blo] == C[Clo]:
+            print(A[Alo])
+            Alo +=1 
+            Blo +=1
+            Clo +=1
+        
+        elif A[Alo] < B[Blo]:
+            Alo+=1
+        
+        elif B[Blo] < C[Clo]:
+            Blo+=1
+            
+        else:
+            Clo+=1
+            
+A = [1,2,3,4,5]
+B = [1,3]
+C = [3,4,5]
+print("Intersection of A, B, C is ")
+InterSect1(A, B,C)
+
 print()
 #Given an array return a random subset of the given size of the array elemts
 import random

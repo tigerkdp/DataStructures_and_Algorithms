@@ -145,36 +145,21 @@ random_sampling(A, k)
 print(A[0:k])
 
 
-#Common elements in 3 sorted arrays
-# while lo < hi. 
-    #if A[lo] == B[lo] == c[lo], alo++, blo++,clo++
-    #else A[lo] < B[lo], then alo++
-    #else B[lo] < c[lo], then blo++
-    #slse clo++
-def InterSect1(A, B,C):
-    Alo, Ahi = 0, len(A)
-    Blo, Bhi = 0, len(B)
-    Clo , Chi = 0, len(C)
-    while Alo < Ahi and Blo < Bhi and Clo < Chi:
-        if A[Alo] == B[Blo] and B[Blo] == C[Clo]:
-            print(A[Alo])
-            Alo +=1 
-            Blo +=1
-            Clo +=1
-        
-        elif A[Alo] < B[Blo]:
-            Alo+=1
-        
-        elif B[Blo] < C[Clo]:
-            Blo+=1
-            
-        else:
-            Clo+=1
-            
-A = [1,2,3,4,5]
-B = [1,3]
-C = [3,4,5]
-InterSect1(A, B,C)
+
+def oddish_or_evenish(num):
+   total = 0
+   for n in str(num):
+       total += int(n)
+   if total % 2 == 0:
+       return "Evenish"
+   else:
+       return "Oddish"
+   
+
+print(oddish_or_evenish(44))
+#4 + 4 = 8 and hence it is "Evenish"
+#"Evenish" if sum([int(x) for x in list(str(num))]) % 2 == 0 else "Oddish"
+
 
 
 #median of an array
