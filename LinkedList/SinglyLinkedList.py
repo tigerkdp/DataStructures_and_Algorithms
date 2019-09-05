@@ -694,6 +694,7 @@ class LinkedList:
             return "Odd"
     
     
+    #stack 
     def is_list_palindrome(self):                #O(N), space:O(N)
         st = []
         l = self.start
