@@ -229,6 +229,7 @@ U = "CMXCIV"
 romanToInt(U)
 
 
+#Reverse a number using Stack
 def reverse_a_num_using_stack(num):
     
     stack = []
@@ -236,9 +237,8 @@ def reverse_a_num_using_stack(num):
     while num != 0:
         stack.append(num % 10)
         num = num // 10
-        
         #stack = [1,5,7]
-        
+    
     reverse = 0
     i = 1
     while stack:
@@ -250,6 +250,7 @@ def reverse_a_num_using_stack(num):
 reverse_a_num_using_stack(751)
 
 
+#find a number is a perfect square
 def is_perfect_square(x):
     s = int(math.sqrt(x))
     if s*s == x:
@@ -257,6 +258,7 @@ def is_perfect_square(x):
     else:
         return False
 
+#find if a number is fibonnaci
 def is_fibonacci(n):
     return is_perfect_square(5*n*n+4) or is_perfect_square(5*n*n-4)
 
