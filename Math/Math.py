@@ -269,4 +269,29 @@ for i in range(1,10):
     else:
         print(i, "is not Fibonnaci")
         
+    
+#square root
+def square_root(num):
+    if num < 2:
+        return num
+    
+    lo = 0
+    hi = num
+    
+    while hi-lo > 1:
+        mid = lo + (hi-lo) //2
+        div = num // mid
+        
+        if mid == div:
+            return mid
+        if mid < div:
+            lo = mid
+        else:
+            hi = mid
+            
+    return lo
+
+
+print("square root of 100 is", square_root(100))
+print("square root of 20 is", square_root(44))
 
