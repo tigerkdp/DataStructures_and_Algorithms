@@ -28,7 +28,7 @@ def fib(n):
     else:
         return fib(n-1) + fib(n-2)
     
-print(fib(8))
+print("fibonnaci", fib(8))
 
 
 
@@ -227,3 +227,44 @@ def romanToInt(R):
 
 U = "CMXCIV"
 romanToInt(U)
+
+
+def reverse_a_num_using_stack(num):
+    
+    stack = []
+    
+    while num != 0:
+        stack.append(num % 10)
+        num = num // 10
+        
+        #stack = [1,5,7]
+        
+    reverse = 0
+    i = 1
+    while stack:
+        reverse = reverse + stack.pop() * i  #1. (7 + 1*1)=7  #2. (7 + 5*10)=57  #3 (57+7*100)=157
+        i = i * 10
+        
+    print(reverse)
+    
+reverse_a_num_using_stack(751)
+
+
+def is_perfect_square(x):
+    s = int(math.sqrt(x))
+    if s*s == x:
+        return True
+    else:
+        return False
+
+def is_fibonacci(n):
+    return is_perfect_square(5*n*n+4) or is_perfect_square(5*n*n-4)
+
+print("Fibonnaci or n numbers")
+for i in range(1,10):
+    if is_fibonacci(i):
+        print(i, "is Fibonnaci")
+    else:
+        print(i, "is not Fibonnaci")
+        
+
