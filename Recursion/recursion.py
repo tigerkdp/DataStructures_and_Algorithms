@@ -649,6 +649,23 @@ def decimal_to_binary(n):
 
 print("Decimal to binary", decimal_to_binary(8))
 #Decimal to binary 1000
+"""
+    1. d2B(8)
+    | return 1000
+    |
+    2. 10 * d2B(4)
+    |8. 10 * 100 + 100 % 2 = 1000
+    |
+    3. 10 * d2B(2)
+    |7. 10 * 10 + 10 % 2 = 0 = 100
+    |
+    4. 10 * d2B(1) 
+    <2
+        6. 10* 1 + 1%2 = 1 = 10
+    5. return 1
+    
+
+"""
 
 
 def decimal_to_base(n, b):
@@ -751,14 +768,14 @@ print("longest palindromic substring is", longest_palindromic_substring("yayi"))
          /11.ret a\
         /          \
        3  yi          7 ay
-      / 6  \             /  \
-      /ret y\           /   \
-     /       \         / 10. \
-     /        \       /ret a  \
-    /          \      /        \
-    4         5 y    /          \
-  aux1=i     aux2=y  8 y         9 a
-                   aux1=y        aux2=a             
+      / 6   \              /  \
+     / ret y \            /    \
+    /         \          / 10.  \
+   /          \        /ret a    \
+  /            \      /           \
+  4           5 y      /           \
+  aux1=i      aux2=y   8 y         9 a
+                    aux1=y        aux2=a             
 """              
 
 
@@ -1029,6 +1046,51 @@ def select_sort_rec(a):
 A = [7,5,23,3,8,4]
 print(select_sort_rec(A))
 
+"""
+     1. sort(7,5,23,3,8,4)
+     |  13. return [3,4,5,7,8, 23]
+     |
+         b = [7,5,23,3,8,4]
+         m = 3
+         b = [7,5,23,8,4]
+     |
+     2. [3] + sort(7,5,23,8,4)
+     | 12. return [3,4,5,7,8,23]
+     |  
+         b = [7,5,23,8,4]
+         m = 4
+         b = [7,5,23,8]
+     |
+     3. [4] + sort(7,5,23,8)
+     |  11. return [4,5,7,8, 23]
+     |
+         b = [7,5,23,8]
+         m = 5
+         b = [7,23,8]
+     | 
+    4. [5] + sort(7,23,8)
+    | 10. return [5, 7, 8, 23]
+    |
+        b = [7,23,8]
+        m = 7
+        b = [23,8]
+    |
+    5. [7] + sort(23,8)
+    |  9. return [7,8,23]
+    |
+        b = [23,8]
+        m = [8]
+        b = [23]
+    |
+    |
+    6. [8] + [23]
+    | 8. return [8,23] 
+    |
+    |
+    7.return 23 
+
+"""
+
 
 def select_sort_rec_1(a):
     if len(a) <= 1:
@@ -1241,15 +1303,15 @@ print("Possible ways a child can jump", steps_possible(3))
 
 """
             1               steps_possible(3)   
-                /               1 + 2+1+0                           \ 
+                /              r = 1+2+1+0=4                        \ 
                /                        |                            \ 
               /                         |                             \
             2   steps_possible (2)       9 steps_possible(1)        13 steps(0)
           /   ret 1+1+0+0  | \            | ret 1 +0+0+0    \       ret 0
          /                 |  \           |          \       \
         /                  |   \          |           \       \
-    3  steps_poss(1) 7steps(0) \          10 st(0), 11 st(-1), 12 st(-2)
-      / ret 1 |    \   ret 0   8 steps(-1)   ret 0     ret 0   ret 0
+    3  steps_poss(1) 7steps(0)  \          10 st(0), 11 st(-1), 12 st(-2)
+      / ret 1 |    \   ret 0   8 steps(-1)  ret 0     ret 0     ret 0
 4    /        |      \           ret 0
 steps(0) 5 steps(-1)  6 st(-2)
 ret 0    ret 0          ret 0
