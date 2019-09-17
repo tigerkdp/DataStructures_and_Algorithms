@@ -289,6 +289,7 @@ def reverseVowels(aStr):
             
 A = "facetious"
 reverseVowels(A)
+#fucotieas
 
 
 #Common chars - Pythonic
@@ -304,7 +305,7 @@ def commonChars(aStr, bStr):
 A = "geeks"
 B = "beGeeks"
 commonChars(A, B)  
-
+#eeks
 
 
 #Mirror Strings
@@ -328,7 +329,7 @@ def mirrorStrings(aStr, n):
 st = "pneumonia"
 n = 4
 answer =  mirrorStrings(st, n)
-
+#pneunlmrz
 
 # Remove Dups, split string.
 def removeDupsSplitString(string, k):
