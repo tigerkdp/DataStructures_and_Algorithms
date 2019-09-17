@@ -76,6 +76,82 @@ FirstRepeatedChar(sentence)
 #{'Mary': 1, 'had': 1, 'a': 1, 'little': 2, 'lamb': 1}
 #little is the first repeated word
 
+
+#Print all substrings in a string
+def print_all_substrings(str1):
+    for i in range(len(str1)):
+        for j in range(i, len(str1)):
+            print(str1[i:j+1])
+
+print_all_substrings("ABC")
+"""
+A
+AB
+ABC
+B
+BC
+C
+"""
+
+
+#ABC -->0/0 --> call rec ABC
+    #-->1/1 -->call ABC  2/2 call ABC [l==r match, print (ABC)]
+    #ABC
+    #-->2/1 -->call ACB  2/2 call ACB [l==r match print (ACB) ]
+#ABC --> ABC
+
+#ABC -->1/0 --> call rec  BAC
+     #-->1/1 -->call BAC  2/2 Call BAC [l==r match print (ABC)]
+     #BAC
+     #-->2/1 -->call ACB  2/2 Call BCA [l==r matchprint (BCA)]
+#BCA --> ABC
+
+#ABC -->2/0 --> call rec CBA
+    #-->1/1 -->call CBA  2/2 Call CBA [l==r match print (CBA)]
+    #CBA
+    #-->2/1 -->call CAB  2/2 Call CAB [l==r match print (CAB)]
+#CBA --> ABC
+print()
+def perm_of_list(A, l, r):
+    if l==r:
+        print(A)
+    else:
+        for i in range(l, r+1):
+            A[l], A[i] = A[i], A[l]
+            perm_of_list(A, l+1, r)
+            A[l], A[i] = A[i], A[l]
+
+
+B="ABC"
+n = len(B)
+A = list(B)
+perm_of_list(A, 0, n-1)
+"""
+                 1 permutation of    (ABC)
+               /         \                 \
+      swap 0/0/   swp 1/0 \         swp 2/0 \ 
+             /             \                 \ 
+        2 ABC              5  BAC           8   CBA 
+         /    \            /     \             /     \ 
+swap 1,1/  2/1 \      1/1 /   2/1 \       1/1 /    2/1\ 
+       /        \        /         \         /         \
+  3 ABC      4 ACB     6 BAC   7 BCA     9  CBA     10  CAB
+     |         |        |        |          |           |
+ 2/2 |    2/2  |    2/2 |    2/2 |      2/2 |       2/2 |
+     |         |        |        |          |           |
+   prnt       prnt     prnt     prnt        prnt       print
+ 
+output
+['A', 'B', 'C']
+['A', 'C', 'B']
+['B', 'A', 'C']
+['B', 'C', 'A']
+['C', 'B', 'A']
+['C', 'A', 'B']
+
+"""
+
+
 print()
 #first non repeated word
 def FirstNonRepeatedChar(sentence):
@@ -88,10 +164,12 @@ def FirstNonRepeatedChar(sentence):
             adict[word] = 1
     print(adict)
     
-    for word in adict:
-        if adict[word] == 1:
+    for word in alist:
+        print(word)
+        if adict.get(word) == 1:
             print(word, "is the first non repeated char")
             return
+        
 sentence = "Mary Mary had a little little lamb"
 FirstNonRepeatedChar(sentence)
 #{'Mary': 2, 'had': 1, 'a': 1, 'little': 2, 'lamb': 1}
@@ -131,7 +209,7 @@ A = "repeatedly"
 stringHash(A)
 #9
 
-#grop  by
+#group  by
 from itertools import groupby
 def fistCharsofConsChars(aStr):
     n = len(aStr)
@@ -292,7 +370,7 @@ def charfrequencySort(A):
 A = "trrree"
 charfrequencySort(A)
 #rrreet
-
+#{'t': 1, 'r': 3, 'e': 2}
 
 # length of last word
 def lengthofLastWord(A):
@@ -305,7 +383,7 @@ def lengthofLastWord(A):
     
 A = "Hell World"
 lengthofLastWord(A)
-
+#5
 
 # P=Present, A=Absent,  L=Late
 def rewardStudent(A):
@@ -325,7 +403,7 @@ def rewardStudent(A):
     
 A = "PALL"
 print(rewardStudent(A))
-
+#True
 
 #Count of words
 def Minion(s):
@@ -387,7 +465,7 @@ def isAnagram(StrA, StrB):
 stra = "anagram"
 strb = "naagram"
 isAnagram(stra, strb)
-
+#True
 
 #Anagram
 def anagram(A):
@@ -405,16 +483,17 @@ anagram(A)
 #Anagram
 def anagram(A):
     dict1={}
+    sum1 = 0
     for i in A:
-       dict1.setdefault(sum([ord(x) for x in i]), []).append(i)
+        for x in i:
+            sum1 += ord(x)
+        dict1.setdefault(sum1, []).append(i)
+        sum1 = 0
     print(dict1)
     #key is sum of asci chars
     #{312: ['cat', 'act'], 314: ['ate', 'eat'], 441: ['mary'], 971: ['orchestra']}
-    
-    for values in dict1.values():
-        print(values)
-        
-A = ['cat','act', 'ate', 'eat', 'mary', 'orchestra']
+
+A = ['cat','act', 'ate', 'eat', 'mary', 'orchestra', 'carthouse']
 anagram(A)
 #{312: ['cat', 'act'], 314: ['ate', 'eat'], 441: ['mary'], 971: ['orchestra']}
 #['cat', 'act']
@@ -534,3 +613,64 @@ TravelItinerary(travelDict)
 #Goa->Chennai 
 #Chennai->Bangalore 
 
+
+#Number to string
+def print_3_digit(number):
+    
+    basic_lookup = ['', 'One', 'Two', 'Three', 'Four', 'Five', 
+                    'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven',
+                    'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen',
+                    'Seventeen', 'Eighteen', 'Nineteen'
+                    ]
+    
+    tens_lookup = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty',
+                   'Seventy', 'Eighty',  'Ninety']
+    
+    hundred_digit = number // 100
+    if hundred_digit > 0 :
+            print(basic_lookup[hundred_digit] + ' Hundred ', end=' ')
+        
+    remainder = number % 100
+    if remainder > 0:
+        if remainder <= 19:
+            print(basic_lookup[remainder] + ' ', end='')
+        else:
+            
+            tens_digit = remainder // 10
+            unit_digit = remainder % 10
+            print(tens_lookup[tens_digit] + ' ', end='')
+            print(basic_lookup[unit_digit] + ' ', end='')
+    
+def print_num_in_words(number):
+    
+    if number == 0:
+        print("Zero")
+        return
+    
+    millions = number // 1000000
+    remainder = number - (millions * 1000000)
+    
+    thousands = remainder // 1000
+    remainder = remainder - (thousands * 1000)
+    
+    if millions > 0:
+        print_3_digit(millions)
+        print('Million', end='')
+        
+    if thousands > 0:
+        print_3_digit(thousands)
+        print('Thousand ', end='')
+        
+    if remainder > 0:
+        print_3_digit(remainder)
+        
+    print('')
+    
+print_num_in_words(999)
+#Nine Hundred  Ninety Nine 
+
+print_num_in_words(842453)
+#Eight Hundred  Forty Two Thousand Four Hundred  Fifty Three
+
+
+    

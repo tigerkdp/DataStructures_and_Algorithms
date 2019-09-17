@@ -1468,6 +1468,7 @@ class BinaryTree:
             print("Sum at each level : ", level, sum1)
             print("Average at level :", level, sum1 / count)
 
+
     def deepest_node(self, root):
         if root is None:
             return
