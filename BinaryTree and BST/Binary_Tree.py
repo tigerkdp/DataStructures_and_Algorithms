@@ -4,6 +4,69 @@
 Created on Sun Oct 21 12:03:32 2018
 
 @author: kdp
+
+1) Add an item in a binary tree like a BST
+2) Add an item in a binary tree like BFS
+3) Display the items from a tree
+4) Delete node recursively 
+5) Delete node recursively Alt
+6) Delete node iteratively like BFS
+7) Print items only in the left node from leaf to root
+8) Print items only in the left node from root to leaf
+9) Print only extreme right nodes
+10) Print all left nodes
+11) Print all right nodes
+12) Print pre-order recursively
+13) Print preorder iteratively
+14) Print in-order recursively
+15) Print in-order iteratively
+16) Print k-th node in an inorder
+17) Print post-oder recursively
+18) Print post-order iteratively
+19) Level Order Traversal
+20) Level Order Traversal line-by-line
+21) Level Order in Reverse
+22) Print all ancestors of a node recursively
+23) Print tree in a spiral order
+24) Lowest Common Ancestor of two nodes
+25) Size of a tree recursively
+26) Size of a tree iteratively
+27) Max item in a tree recursively
+28) Max item in a tree iteratively
+29) Height of a tree recursively
+30) Height of a tree iteratively
+31) Find a node recursively
+32) Find a node iteratively
+33) Sum of values recursively
+34) Sum of values iteratively
+35) Sum of values in each level
+36) Level with max sum
+37) Vertical sum of all nodes
+38) is Leaf Node
+39) Sum of all left leaf nodes recursively 
+40) Diameter of a tree
+41) Number of full nodes iteratively
+42) Number of full nodes recurively
+42) Number of half nodes iteratively
+43) Number of half nodes recursively
+44) Number of leaf nodes iteratively
+45) Number of leaf nodes recursively
+46) Node count at eah level
+47) Average of elems at each level
+48) Deepest node of the tree
+49) Bottom View of the tree
+50) Right view of the tree
+51) Right view of the tree alt
+52) Left view recursively
+53) Left view iteratively
+54) Top view of the tree
+55) Sum Tree of a BT
+56) Convert to mirror of the tree
+57) Build Binary Tree given list in inorder and preoder
+58) Build Binary Tree given list in inorder and level
+59) Are two trees structurally same
+60) Are two trees mirror of each other
+
 """
 
 class BinaryNode:

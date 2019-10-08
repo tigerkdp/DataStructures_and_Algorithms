@@ -3,6 +3,66 @@
 Array
 """
 #Learning Arrays 
+"""
+- Brute Force approach finds all the possible solutions and selects desired solution per given the constraints.
+- Dynamic Programming also uses Brute Force approach to find the OPTIMUM solution, either maximum or minimum.
+- Backtracking also uses Brute Force approach but to find ALL the solutions.
+- Solutions to the Backtracking problems can be represented as State-Space Tree.
+- The constrained applied to find the solution is called Bounding function.
+- Backtracking follows Depth-First Search method.
+- Branch and Bound is also a Brute Force approach, which uses Breadth-First Search method.
+
+1) print the list
+2) unsorted_linear_search
+3) isListSorted
+4) sum_unique_elements
+5) Binary_search_iterative  (D&C)
+6) Binary_search_recursive (D&C)
+7) Reverse the list
+8) Print kth item from the last
+9) Check duplicate item brute force
+10) Check duplicated in sorted list
+11) Check duplicated wihtin K sorted  (set)
+12) Even or odd item
+13) Segregate even and odd items in the list
+14) Prime numbers till N
+15) If a number is prime
+16) Append N items at the end
+17) Delete dups from sorted list
+18) Find max item in the list
+19) Max diff between two items in a list (max, min var)
+20) Find majority item in a list (n/2)
+21) Item appearing max number of times
+22) Leader more than half of the items
+23) Last index of a duplicate item in a list
+24) Buy and sell stock once for max profit
+25) Rearrange items such that A[1] > A[2] < A[3]..
+26) Sort the items in wave form
+27) Rotate array by k 
+28) Common elements (intersection) in 3 sorted arrays
+29) Random sampliing from 0 to k
+30) Find next higher item than k (D&C)
+31) Get missing number
+32) Dutch national flag
+33) Merge two sorted arrays
+34) Two elements whose sum is closest to zero
+35) Search in rotated array
+36) Max sum in a subarray
+37) Contiguous max sum in a subarray
+38) Find two items that mathces k (Two Sum)
+39) Has two sum in an array
+40) Find three sum that matches k (Three sum)
+41) Optimal way to merge files (Optimal Merge - Heap)
+42) Local Maxima
+43) Local Minima
+44) Cyclic Rotation in an unsorted array
+45) Necklace Beads of items in a list
+46) Product of all items besides index item
+47) Equilibrium (sum of left items == sum of right items)
+48) Print all sublists 
+49) Print all sublists 
+
+"""
 
 def list_print(An):
     
@@ -909,6 +969,7 @@ for x in A[1:]
 
 
 #pring the max sum of contiguous data elements.
+#also referred as max sequence in an array
 print()
 def contiguous_max_sub_array(A):
     
