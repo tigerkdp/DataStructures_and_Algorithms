@@ -44,6 +44,9 @@ activity_selection(start_time_arr, end_time_arr)
 (5, 7)
 (8, 9)
 
+Time Complexity NLogN
+Space Complexity LogN
+
 """
 
 #Coin change problem
@@ -74,10 +77,76 @@ coin_change(2352, denominations)
       
 """
 1000, 1000, 100, 100, 100, 50, 2]
+    
+Time Complexity - ON
+Space Complexity - OV (length of the result array)
 """  
         
+
+            
+#Fractional Knapsack
+#Fill the knapsack such that the value is maximum and total weight is W.
+#Items can be broken down to maximize knapsack
+
+#Algorithm
+#Calculate the ratio (value/weight) for each item
+# sort the items based on this ratio in desc order
+#Take the items with the highest ratio until weight allows
+#At the end, add the next item in fraction as you can
+
+class item_value:
+    def __init__(self, wt, val, ind):
+        self.wt = wt
+        self.val = val
+        self.ind = ind
+        self.cost = val // wt   #ratio of value/weight
+        
+    def __lt__(self, other):
+        return self.cost < other.cost
+    
+class fractional_knapscak:
+    
+    @staticmethod
+    def get_max_value(wt, val, capacity):
+        
+        iVal = []
+        for i in range(len(wt)):
+            item_val=item_value(wt[i], val[i], i)
+            print(item_val)
+            iVal.append(item_val)
+            
+        #sort the item based on ratio in desc
+        iVal.sort(reverse=True)
+        
+        total_value = 0
+        
+        #take each item with highest ratio
+        for i in iVal:
+            curr_wt = int(i.wt)  #curr weight
+            curr_val = int(i.val)  #curr value
+            if capacity - curr_wt >= 0: #if capacity - curr wt >0
+                capacity -= curr_wt     #deduce weight from capacity and make it new capacity
+                total_value += curr_val #add value to total_value
+            else:       # capacity - weight is less than zero
+                fraction = capacity / curr_wt  #fraction of the capacity
+                total_value += curr_val * fraction  #total value = curr val*fraction
+                capacity = int(capacity - (curr_wt * fraction)) #update capacity
+                break
+        return total_value
+    
+wt = [10,40,20,30]
+val = [60,40,100,110]
+capacity = 50
+
+max_value = fractional_knapscak.get_max_value(wt, val, capacity)
+print("Max Value that can go in the Knapsack is", max_value)
+
+
+            
             
         
+        
+    
         
         
     
