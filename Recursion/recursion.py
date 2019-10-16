@@ -734,50 +734,6 @@ print("is palindrome kasam", is_palindrome("kasam"))
 """
 
 
-#consider dynamic programming
-def longest_palindromic_substring(s):
-    n = len(s)
-    if is_palindrome(s):
-        return s
-    else:
-        aux1 = longest_palindromic_substring(s[1:n])
-        aux2 = longest_palindromic_substring(s[0:n-1])
-        if len(aux1) > len(aux2):
-            print(aux1)
-            return aux1
-        else:
-            print(aux2)
-            return aux2
-        print("aux3")
-
-print("longest palindromic substring is", longest_palindromic_substring("yayi"))
-#longest palindromic substring is nayan
-
-#the length is checked in case there are two palindromes returned
-
-"""
-              
-  
-                 1 yayi
-               / 13.ret \
-               /    yay  \
-              /           \
-             /             \
-          2 ayi             12  yay
-          /      \          aux2 = "yay" 
-         /11.ret a\
-        /          \
-       3  yi          7 ay
-      / 6   \              /  \
-     / ret y \            /    \
-    /         \          / 10.  \
-   /          \        /ret a    \
-  /            \      /           \
-  4           5 y      /           \
-  aux1=i      aux2=y   8 y         9 a
-                    aux1=y        aux2=a             
-"""              
-
 
 def equal_strings(s,t):
     if len(s) != len(t):
@@ -1450,46 +1406,7 @@ else:
                    
 """
 
-#Longest common subsequence
-#consider dynamic programming
-def lcs(X, Y, m, n):
 
-    if m == 0 or n == 0:
-        return 0
-    elif X[m-1] == Y[n-1]:
-        return 1 + lcs(X, Y, m-1, n-1)
-    else:
-        return max(lcs(X, Y, m, n-1), lcs(X, Y, m-1, n))
-
-X = 'AXYT'
-Y = 'AYZX'
-print("Length of LCS is ", lcs(X, Y, len(X), len(Y)))
-
-#output of LCS is 2  (AY)
-""" Partial recursive tree for LCS
-
-                                lcs(AXYT,       AYZX)
-                                 /                      \ 
-                                /                        \ 
-                   lcs(AXY,        AYZX)                  lcs(AXYT,  AYZX)
-               /                         \                    /            \ 
-              /                            \                  /               \ 
-        lcs(AX,        AYZX)                lcs(AXY, AYZ)   lcs(AXY, AYZX)      lcs(AXYT, AY)
-        /          r1         \               \            /          \                /   \ 
-       /                      \                 \...       /           \               /    \ 
-      lcs(A, AYZX)             lcs(AX, AYZ)              lcs(AX, AYZX)  lcs(AX, AYZ)   ..     ..
-     /     r1    \               /   r1     \           return 1             \ 
-    /             \             /            \                                \ 
-lcs("", AYZX)   lcs(A, AYZ)    lcs(A, AYZ)     lcs(AX, AY)                     lcs(AX, AY)
-return 0       /  r1     \        /      \      /   r1     \                     /          \ 
-              /         \    lcs("", AYZ)  ..    /           \                     /          \ 
-    lcs("", AYZ)  lcs(A, AY) return 0        lcs(A, AY)      lcs(AX, A)           lcs(A, AY)   lcs(AX, A)
-     return 0     /   r1  \                 /  r1   \          /    r1  \           /               \ 
-                /           \               /       \         /          \         lcs("", AY)  lcs(AX, "")
-        lcs("", AY)    lcs(A, A)   lcs("", AY)   lcs(A, A)  lcs(A, A) lcs(AX, "") return 0     return 0
-        return 0        return 1    return 0      return 1  return 1  return 0
-        
-"""
 
 #Cutting rod
 
@@ -1565,3 +1482,272 @@ def findpeak(A, low, high, n):
 A = [1,3,20,4,1,0]
 print("index of a peak point is", findpeak(A, 0, n-1, n))
 #index of a peak point is 2
+
+
+
+#Number factor problem
+# Given N, count the number of ways to express N as a sum of 1, 3, 4
+# N=4.  output = {4}, {1,3}, {3,1} {1,1,1,1}
+# Divide and Conquer
+def ways_to_get_n(N):
+    
+    if (N==0 or N==1 or N==2):  #{1}, {1,1}, {}
+        return 1
+    if N==3:
+        return 2        #{1,1,1}, {3}
+    
+    subtract1 = ways_to_get_n(N-1) 
+    subtract2 = ways_to_get_n(N-3) 
+    subtract3 = ways_to_get_n(N-4) 
+    
+    return subtract1 + subtract2 + subtract3 
+
+ways=ways_to_get_n(5)
+print("Number of ways to get N is", ways)
+#Number of ways to get N is 6
+
+
+#House Thief Problem
+# There are n houses build in a line, each o which contains value in it.
+# Thieft is going to stral maximum value but cannot steal from two adjacent houses
+# What is the maximum value 
+#input = {6,7,1,30,8,2,4}
+#output = 41
+# house # = 7, 30, 4
+
+def max_value_from_house(house_worth, curr_index):
+    
+    if curr_index >= len(house_worth):
+        return 0
+    
+    # steal_current_house =  curr_index=0 [6] + f(5) remaining 5 after skipping 1
+    # skip_current_house =   0 + f(6)  remaining 6  
+    steal_current_house = house_worth[curr_index] + max_value_from_house(house_worth, curr_index+2)
+    skip_current_house =  max_value_from_house(house_worth, curr_index+1)
+    
+    return max(steal_current_house, skip_current_house)
+
+house_worth = [6,7,1,30,8,2,4]
+value= max_value_from_house(house_worth, 0)
+print("Max stolen value is", value)
+
+#ax stolen value is 41
+
+
+#Edit Distance problem. Convert one string to another
+# We are given two strings S1, S2
+# We need to convert s2 to s1 by deleting, inserting and replacing chars
+# Write a function to calculate the count of minimum number of edit operations
+
+"""
+s1 = t a b l e      
+s2 = t g a b l e     delete g   F(2,3)  = next char
+
+s1 = t a b l e
+s2 = t b l e        insert a    F(3, 2) = next char
+
+s1 = t a b l e
+s2 = t c b l e      replace c    F(3,3) = next char 
+
+min(F(2,3), min(3,2), min(3,3))
+"""
+def find_minimum_operations_aux(S1, S2, index1, index2):
+    
+    if index1 == len(S1):  # if we have reached the end of s1, rest of the char from S2 needs to be deleted
+        return len(S2) - index2
+    if index2 == len(S2): # if we have reached the end of S2, rest of the char from S1 needs to inserted in S1
+        return len(S1) - index1
+    
+    if S1[index1] == S2[index2]: #matching, move to next char
+        return find_minimum_operations_aux(S1, S2, index1+1, index2+1)
+    
+    c1 = 1 + find_minimum_operations_aux(S1, S2, index1+1, index2)  #perform insertion
+    c2 = 1 + find_minimum_operations_aux(S1, S2, index1, index2+1)  #perform deletion
+    c3 = 1 + find_minimum_operations_aux(S1, S2, index1+1, index2+1) #perform replacement
+    
+    return min(c1, c2, c3)
+
+
+S1 = "table"
+S2 = "tgable"
+operations = find_minimum_operations_aux(S1, S2, 0, 0)
+print("Mininum number of operations needed to tweak S2 to become S1", operations)
+#Mininum number of operations needed to tweak S2 to become S1 1
+
+S1 = "table"
+S2 = "tble"
+operations = find_minimum_operations_aux(S1, S2, 0, 0)
+print("Mininum number of operations needed to tweak S2 to become S1", operations)
+#Mininum number of operations needed to tweak S2 to become S1 1
+
+S1 = "table"
+S2 = "tcble"
+operations = find_minimum_operations_aux(S1, S2, 0, 0)
+print("Mininum number of operations needed to tweak S2 to become S1", operations)
+#Mininum number of operations needed to tweak S2 to become S1 1
+
+
+#Longest common subsequence
+#divide and conquer shown here
+#we are given two strings s1, s2
+#we need to find the longest subsequence common in both strings
+#subsequence is a sequence that can be derived from another sequence
+#by deleting some elements without changing the order of remaining elements
+# Subseuence of ABCDE is ADE, ACE, ACD, ABD, ABCE, ABDE.
+# only thing allowed is deleting without impacting the order
+#problem is very similar to edit distance
+def lcs(X, Y, m, n):
+
+    if m == 0 or n == 0:
+        return 0
+    elif X[m-1] == Y[n-1]:
+        return 1 + lcs(X, Y, m-1, n-1)
+    else:
+        return max(lcs(X, Y, m, n-1), lcs(X, Y, m-1, n))
+
+X = 'AXYT'
+Y = 'AYZX'
+print("Length of LCS is ", lcs(X, Y, len(X), len(Y)))
+
+
+#output of LCS is 2  (AY)
+""" Partial recursive tree for LCS
+
+                                lcs(AXYT,       AYZX)
+                                 /                      \ 
+                                /                        \ 
+                   lcs(AXY,        AYZX)                  lcs(AXYT,  AYZX)
+               /                         \                    /            \ 
+              /                            \                  /               \ 
+        lcs(AX,        AYZX)                lcs(AXY, AYZ)   lcs(AXY, AYZX)      lcs(AXYT, AY)
+        /          r1         \               \            /          \                /   \ 
+       /                      \                 \...       /           \               /    \ 
+      lcs(A, AYZX)             lcs(AX, AYZ)              lcs(AX, AYZX)  lcs(AX, AYZ)   ..     ..
+     /     r1    \               /   r1     \           return 1             \ 
+    /             \             /            \                                \ 
+lcs("", AYZX)   lcs(A, AYZ)    lcs(A, AYZ)     lcs(AX, AY)                     lcs(AX, AY)
+return 0       /  r1     \        /      \      /   r1     \                     /          \ 
+              /         \    lcs("", AYZ)  ..    /           \                     /          \ 
+    lcs("", AYZ)  lcs(A, AY) return 0        lcs(A, AY)      lcs(AX, A)           lcs(A, AY)   lcs(AX, A)
+     return 0     /   r1  \                 /  r1   \          /    r1  \           /               \ 
+                /           \               /       \         /          \         lcs("", AY)  lcs(AX, "")
+        lcs("", AY)    lcs(A, A)   lcs("", AY)   lcs(A, A)  lcs(A, A) lcs(AX, "") return 0     return 0
+        return 0        return 1    return 0      return 1  return 1  return 0
+        
+"""
+
+def lcs_alt(X, Y, i1, i2):
+    
+    if i1 == len(X) or i2 == len(Y):
+        return 0
+    
+    c3 = 0
+    if X[i1] == Y[i2]:
+        c3 = 1 + lcs_alt(X, Y, i1+1, i2+1)
+    c1 = lcs_alt(X, Y, i1, i2+1) #increase index of 2st string 
+    c2 = lcs_alt(X, Y, i1+1, i2) #increase index of 1nd string
+    return max(c1, c2, c3)
+
+X1 = 'elephant'
+Y1 = 'eretpat'
+print("Length of LCS is ", lcs_alt(X1, Y1, 0, 0))
+#Length of LCS is  5  eepat
+"""
+1.  both char match   1 + F(2,8, 2,7)   go from index 2 to 8 for S1, and 2 to 7 for S2
+2. both char not match, omit char from S1 0 + F(3,8, 2,7)  ignore l from elephant
+3. both char not match, omit char from S2 0 + F(2,8, 3,7)  ignore r from eretpat
+max from 1,2,3
+
+"""
+
+#Longest Palindromic Subsequence
+# We are given a string s.
+# we need to find the length of the longest palindromic subsequence
+# why subsequence - we can leave out some chars only by deleting without impacting order
+# Divide and conquer
+def longest_palindromic_substring(s):
+    n = len(s)
+    if is_palindrome(s):
+        return s
+    else:
+        aux1 = longest_palindromic_substring(s[1:n])
+        aux2 = longest_palindromic_substring(s[0:n-1])
+        if len(aux1) > len(aux2):
+            print(aux1)
+            return aux1
+        else:
+            print(aux2)
+            return aux2
+        print("aux3")
+
+print("longest palindromic substring is", longest_palindromic_substring("yayi"))
+#longest palindromic substring is nayan
+
+#the length is checked in case there are two palindromes returned
+
+"""
+              
+  
+                 1 yayi
+               / 13.ret \
+               /    yay  \
+              /           \
+             /             \
+          2 ayi             12  yay
+          /      \          aux2 = "yay" 
+         /11.ret a\
+        /          \
+       3  yi          7 ay
+      / 6   \              /  \
+     / ret y \            /    \
+    /         \          / 10.  \
+   /          \        /ret a    \
+  /            \      /           \
+  4           5 y      /           \
+  aux1=i      aux2=y   8 y         9 a
+                    aux1=y        aux2=a             
+"""              
+
+
+
+
+#0/1 knapsack problem
+#Max profit from the items in the knapsack.
+#Put items in a knapsack which has a capacity of C.
+#Fractional unit is not allowed
+
+"""
+Items = [Mango, Apple, Banana, Orange]
+Profit = [31, 26, 72, 17]
+Weights = [3,1, 5, 2]
+Knapsack Capacity= 7
+
+Mango + Apple + Orange (total weight 6) = 74 profit
+Orange + Banana (total weight 7) = 89 profit
+Apple + Banana (total weight 6) = 98 profit
+
+Approach
+Take 1st item.       profit 31 + F(2,3,4) W = 3
+Dont take 1st item.  profit 0 + F(2,3,4), W=0
+max of (1st and 2nd)
+"""
+
+def knapsack(profits, weights, capacity, curr_index):
+    
+    if capacity <= 0 or curr_index < 0 or curr_index >= len(profits):
+        return 0
+    
+    profit1 = 0
+    if weights[curr_index] <= capacity:
+        profit1 = profits[curr_index] + knapsack(profits, weights, capacity-weights[curr_index], curr_index+1)
+    profit2 = knapsack(profits, weights, capacity, curr_index+1)
+    return max(profit1, profit2)
+
+profits = [31, 26, 72, 17]
+weights = [3,1, 5, 2]
+capacity= 7
+max_profit=knapsack(profits, weights, capacity, 0)
+print("max profit that we can take for this knapsack is", max_profit)
+# max profit that we can take for this knapsack is 98
+
+
