@@ -148,7 +148,23 @@ class BinaryTree:
             print(" ", end=" ")
         print(p.info)
         self.display(p.left, level+1)
-        
+   
+    """
+        16
+    
+      15
+    
+        12
+    
+    10
+    
+        6
+    
+      5
+    
+        4
+
+    """    
         
     #recursively delete a node
     #like a BST deletion.
@@ -230,6 +246,10 @@ class BinaryTree:
         self.only_extreme_left(root.left)
         print(root.info, end=" ")
        
+    """
+    Only print extreme left nodes in reverse
+    4 5 10 None
+    """
 
     #print only extreme left notes with root first using recursion
     def only_extreme_left_str(self, root):
@@ -238,13 +258,22 @@ class BinaryTree:
         print(root.info, end=" ")
         self.only_extreme_left_str(root.left)
         
-
+    """
+    Only print extreme left starting from root
+    10 5 4 None
+    """
+        
     #print only extreme right nodes in reverse using recursion
     def only_extreme_right(self, root):
         if root is None:
             return 
         self.only_extreme_right(root.right)
         print(root.info, end=" ")
+        
+    """
+    Only print extreme right in reverse
+    16 15 10 None
+    """
         
     #all left nodes 
     def all_left_nodes(self, root, node_type):
@@ -256,6 +285,11 @@ class BinaryTree:
         self.all_left_nodes(root.left, "L")
         self.all_left_nodes(root.right, "R")
         
+    """
+    All left nodes
+    10 5 4 12 None
+    """
+        
     #all right nodes including root
     def all_right_nodes(self, root, node_type):
         if root is None:
@@ -265,6 +299,11 @@ class BinaryTree:
             
         self.all_right_nodes(root.left, "L")
         self.all_right_nodes(root.right, "R")
+        
+    """
+    All right nodes
+    10 6 15 16 None
+    """
   
     #recursive - print root.info, call with left node. call with right node
     def pre_order_rec(self, root):
@@ -425,7 +464,8 @@ class BinaryTree:
     """
      3
    2    5
- 4  1   
+ 4   1   
+              inorder -  4 2 1 3 5
  
          p = 3
          stack = []
@@ -506,6 +546,10 @@ class BinaryTree:
                     kth +=1
                 p = p.right
 
+    """
+    Kth node in InOrder Traversal (iter) -->4 
+    
+    """
                 
     #recursive - call with left, call with right, print root.info        
     def post_order_recur(self, root):
@@ -573,7 +617,8 @@ class BinaryTree:
     #else p=pop(). 
     #if p.right is not none and p.right not in visited set. make p = p.right
      #else add p to visited. print p.info. p = None
-    def postOrderIter(self):
+    
+    def postOrderIter(self, root):
         if self.root is None:
             return
         stack = []
@@ -595,6 +640,7 @@ class BinaryTree:
                     print(p.info, end=" ")
                     p = None      
   
+    
     """      
                   1                           
               2       3                
@@ -721,6 +767,11 @@ class BinaryTree:
             if popped.right is not None:
                 queue_list.append(popped.right)
 
+    """
+    
+    LevelOrder Traversal -->10 5 15 4 6 12 16 
+    """
+    
     
      #queue. add root.
      # while 1. NodeCount=length(queue) 
@@ -751,6 +802,13 @@ class BinaryTree:
                 nodeCount -=1       #decrement node count. After all nodes are printed at each level, nodecount will go back to 0
             print()
             
+    """
+    LevelOrder Traversal line by line
+    10 
+    5 15 
+    4 6 12 16     
+    """
+            
     #place all popped items from queue in stack. 
     #Print all items from stack for reverse
     def reverse_level_order(self):
@@ -771,6 +829,10 @@ class BinaryTree:
             popp = stack.pop()
             print(popp.info, end=" ")
             
+    """
+    Reverse LevelOrder Traversal
+    16 12 6 4 15 5 10       
+    """
             
     #recursion. #if root is None. False. 
     #if root.info == item. True
@@ -788,6 +850,9 @@ class BinaryTree:
         return False
     
     """
+    Print all ancestors of a node
+    15,10,
+    
               1
          2        3
       4     5  6     7
@@ -871,6 +936,11 @@ class BinaryTree:
                     print(s.pop(), end=" ")
             reverse = not(reverse)
             
+    """
+    Print nodes in a spiral order
+    10 5 15 16 12 6 4     
+    """
+            
     #recursive LCA
     def LCA(self, root, a, b):
         if root is None:
@@ -919,6 +989,72 @@ class BinaryTree:
     
 
    """       
+    #print root to left path     
+    def root_to_leaf_paths(self, root, path, pathlen):
+        
+        if root is None:
+            return 
+        
+        if len(path) > pathlen:
+            path[pathlen] = root.info
+        else:
+            path.append(root.info)
+        pathlen +=1 
+        
+        if root.left is None and root.left is None:
+            print(path)
+        else:
+            self.root_to_leaf_paths(root.left, path, pathlen)
+            self.root_to_leaf_paths(root.right, path, pathlen)
+            
+    """
+    Root to Leaf paths
+    [10, 5, 4]
+    [10, 5, 6]
+    [10, 15, 12]
+    [10, 15, 16]
+    
+    
+        Tree
+         10
+      5       15
+  4     6   12   16    
+
+
+                        1.  RTP (10, [], 0) 
+                            if 0 > 0 else path=[10], pathlen=1
+                            /                              \
+                          /                                 \
+           2. RTP(5, [10], 1)                                \ 
+                   if 1 > 1 else path=[10,5], pathlen=2      5. RTP(15, [10], 1) 
+            /                  \                                 if 1 > 1 else path=[10,5], pathlen=
+           /                    \                            |                            |
+          /                      \                           6. RTP(12,[10,15],2)         |
+ 3. RTP(4, [10,5], 2)          4. RTP(6, [10,5], 2)            .                        7. RTP(12,[10,15],2)
+  if 2 > 2 else                                                .                        .
+      path=[10,5,4],     if 2 > 2 else path=[10,5,6]           print(10,15,12)          .
+          pathlen=3                        pathlen=3                                    print(10,15,16)   
+  root.left =None                     root.left =None
+  root.right =None                    root.right =None
+  print([10,5,5])                     print([10,5,5])
+ 
+    """
+    
+    def has_path_sum(self, root, remaining_weight):
+        
+        if root is None:
+            return False
+        
+        if root.left is None and root.right is None:
+            if remaining_weight == root.info:
+                return True
+            else:
+                return False
+        
+        #nonleaf
+        return self.has_path_sum(root.left, remaining_weight-root.info) or \
+            self.has_path_sum(root.right, remaining_weight-root.info)
+            
 
     #AGGREGATED/SIZE METHODS--------------------------------------------------
     
@@ -1026,6 +1162,8 @@ class BinaryTree:
         return maxData
     
     """
+    Max elem in the BT (recur) is 16
+    
                 1
           3        5
      2
@@ -1071,11 +1209,16 @@ class BinaryTree:
             
         return max1
 
+    #Max elem in the BT(iter) is 16
+    
+    
     #max(call with left, call with right) +1
     def height_rec(self, root):
         if root is None:
             return 0
         return max(self.height_rec(root.left), self.height_rec(root.right)) + 1
+    
+    #Height of the BT(recur) is  3
     
     """
             1
@@ -1136,6 +1279,9 @@ class BinaryTree:
         
         return level
     
+    #Height of the BT(iter) is  3
+    
+    
     #if root.info==date, found. else# call with left. else call with right
     def find_item_rec(self, root, data):
         if root is None:
@@ -1149,6 +1295,7 @@ class BinaryTree:
             else:
                 return self.find_item_rec(root.right, data)   
             
+    #Search->Item 5 found in the tree
             
     def find_item_iter(self, root, k):
         if root is None:
@@ -1167,11 +1314,15 @@ class BinaryTree:
                 q.append(popped.right)
         return "not found" 
     
+    #Search->Item 10 found in the tree Iter
+    
     #root.info + call with left + call with right
     def sum_of_values_recur(self, root):
         if root is None:
             return 0
         return root.info + self.sum_of_values_recur(root.left) + self.sum_of_values_recur(root.right)    
+
+    #Sum of all elems (recur) is  68
 
     #level order. pop and sum all values
     def sum_of_values_iter(self):
@@ -1188,6 +1339,21 @@ class BinaryTree:
                 queue_list.append(popped.right)
             
         return sum1
+    
+    #Sum of all elems (iter) is  68
+    
+    #sum of left nodes
+    def sum_of_left_leaves_nodes_rec(self, root):
+        res = 0
+        if root is not None:
+            if self.is_leaf_node(root.left):
+                res += root.left.info
+            else:
+                res += self.sum_of_left_leaves_nodes_rec(root.left)
+            res += self.sum_of_left_leaves_nodes_rec(root.right)
+        return res
+    
+    #Sum of all left leaves (recur) is  16
     
     #level order. Append root append None. 
     #if popped is none. print sum.
@@ -1221,8 +1387,13 @@ class BinaryTree:
                     qu.append(popped.left)
                 if popped.right is not None:
                     qu.append(popped.right)
-           
+                   
+            
     """
+    Sum at level 1 is->10
+    Sum at level 2 is->20
+    Sum at level 3 is->38
+    
        10
       /  \
     5     15
@@ -1315,6 +1486,14 @@ class BinaryTree:
             
         return maxLevel
     
+    """
+    Sum at  1 is->10
+    Sum at  2 is->20
+    Sum at  3 is->38
+    Level with max sum  3
+    """
+    
+    
     #if root none, return
     #call recursive functtion with again with left, col-1, dict
     #dict[col] += root.info.  or dict[col] = root.info
@@ -1336,6 +1515,10 @@ class BinaryTree:
         #call again with right with column+1
         self.vertical_sum(root.right, column+1, dict1)
         
+    """
+    Vertical sum for each column is : 
+        {-2: 4, -1: 5, 0: 28, 1: 15, 2: 16}
+    """
         
     def is_leaf_node(self, root):
         if root is None:
@@ -1343,17 +1526,7 @@ class BinaryTree:
         if root.left is None and root.right is None:
             return True
         return False
-        
-    #sum of left nodes
-    def sum_of_left_leaves_nodes_rec(self, root):
-        res = 0
-        if root is not None:
-            if self.is_leaf_node(root.left):
-                res += root.left.info
-            else:
-                res += self.sum_of_left_leaves_nodes_rec(root.left)
-            res += self.sum_of_left_leaves_nodes_rec(root.right)
-        return res
+            
     
     #diameter of the tree
     #left height. right height. left diam, rightdiam. 
@@ -1369,6 +1542,7 @@ class BinaryTree:
         
         return max(lef + rig+1, max(leftdiam, rightdiam))
     
+    #Diameter of the tree is  5
     
     """
        4
@@ -1402,15 +1576,19 @@ class BinaryTree:
                 q.append(node.right)
         return count
 
+    #Num of full nodes  3
+
     #recursive
     def num_of_full_nodes_rec(self, root):
          if root is None :
              return 0
          res  = 0
          if root.left is not None and root.right is not None:
-             return 1 
+             res +=1 
          res += self.num_of_full_nodes_rec(root.left) + self.num_of_full_nodes_rec(root.right) 
          return res
+
+    #Num of full nodes (recur):  3
 
     #level order. count half nodes 
     #left not none. right none, count++
@@ -1434,6 +1612,9 @@ class BinaryTree:
                 q.append(p.right)
         return count
     
+    #Num of half nodes  0
+    
+    
     #recursive half nodes
     def num_of_half_nodes_rec(self, root):
          if root is None :
@@ -1446,6 +1627,8 @@ class BinaryTree:
              
          res += self.num_of_half_nodes_rec(root.left) + self.num_of_half_nodes_rec(root.right) 
          return res
+     
+        #Num of half nodes (recur):  0
     
     #level order. while q. pop.
     #right and left are none. count++
@@ -1466,6 +1649,8 @@ class BinaryTree:
                     q.append(node.right)
         return count
     
+    #Num of leaf nodes  4
+    
     #recursive leaf node
     def num_of_leaf_nodes_rec(self, root):
          if root is None :
@@ -1475,6 +1660,8 @@ class BinaryTree:
              res +=1             
          res += self.num_of_leaf_nodes_rec(root.left) + self.num_of_leaf_nodes_rec(root.right) 
          return res    
+    
+    #Num of leaf nodes (recur)  4
     
     #q, append root. append none.
     #while q, pop. 
@@ -1507,6 +1694,11 @@ class BinaryTree:
                 if popped.right is not None:
                     queue_list.append(popped.right)
               
+    """
+    Node Count at level  1 is->1
+    Node Count at level  2 is->2
+    Node Count at level  3 is->4
+    """
             
     #two while loops. two queues.  
     def average_of_elemts_at_each_level(self, root):
@@ -1531,6 +1723,14 @@ class BinaryTree:
             print("Sum at each level : ", level, sum1)
             print("Average at level :", level, sum1 / count)
 
+        """
+        Sum at each level :  1 10
+            Average at level : 1 10.0
+        Sum at each level :  2 20
+            Average at level : 2 10.0
+        Sum at each level :  4 38
+            Average at level : 4 9.5
+        """
 
     def deepest_node(self, root):
         if root is None:
@@ -1545,6 +1745,7 @@ class BinaryTree:
                 q.append(popped.right)
         return popped.info
 
+    #Deepest node of the tree iter is 16
 
     # VIEWS-------------------------------------------------------------------
 
@@ -1572,7 +1773,11 @@ class BinaryTree:
         
         print(ht)
         
-        
+    """
+    Bottom View of the tree is 
+    {0: 12, -1: 5, 1: 15, -2: 4, 2: 16}
+    """
+    
     #q, append root. 
     #two while loops. while q. count=len(q). level++. 
         #while count >0, pop. if levl > max_level. print pop.info. max_level=level
@@ -1601,6 +1806,10 @@ class BinaryTree:
                     q.append(popped.left)
                 count -=1
    
+    """
+    Right View of the binary Tree is :
+        10 15 16
+    """
          
     def right_view_alt(self, root):
         if root is None:
@@ -1625,6 +1834,8 @@ class BinaryTree:
                 nodeCount -=1       #decrement node count. After all nodes are printed at each level, nodecount will go back to 0
             
             print(popped.info, end=" ")
+        
+   # 10 15 16 
     
             
     def left_view_rec(self, root):
@@ -1641,6 +1852,10 @@ class BinaryTree:
         self.left_view_util(root.left, level+1, max_level)
         self.left_view_util(root.right, level+1, max_level)
         
+    """
+    Left View of the tree (recur) is:
+        10 5 4 
+    """
     
     def left_view_iter(self, root):
         
@@ -1693,6 +1908,11 @@ class BinaryTree:
                 
         print(ht)
         
+    """
+    Top View of the tree is 
+        {0: 10, -1: 5, 1: 15, -2: 4, 2: 16}
+    """
+        
     #CONSTRUCTION of other Trees-----------------------------------------------
     def sum_tree(self, root):
         if root is None:
@@ -1711,6 +1931,21 @@ class BinaryTree:
             self.convert_to_mirror_of_tree(root.right)
             root.left, root.right = root.right, root.left
         return 
+    
+    """
+          5
+    
+        6
+    
+    10
+    
+        12
+    
+      15
+    
+        16
+    """
+    
         
     #select elem from preorder using preindex.     
     #create new node with the data selected from preorderr
@@ -1734,6 +1969,25 @@ class BinaryTree:
         newNode.left = self.build_binary_tree_in_pre(inorder, preorder, in_start, in_index-1)
         newNode.right = self.build_binary_tree_in_pre(inorder, preorder, in_index+1, in_end)
         return newNode
+    
+    """
+    Construct BT from level order and inorder sequence in a list
+
+        70
+    
+      60
+    
+        55
+    
+    50
+    
+        45
+    
+      40
+    
+          35
+    
+    """
     
     #first elem in level order sequence is root. 
     #create a new node with the data selected from level order
@@ -1759,6 +2013,21 @@ class BinaryTree:
             newNode.right = self.build_binary_tree_in_level(level, inorder[io_index+1 : len(inorder)])
             return newNode
 
+    """
+          22
+    
+    20
+    
+          14
+    
+        12
+    
+          10
+    
+      8
+    
+    """
+
         
     #VALIDATIOON
     def are_structurally_same_tree(self, root1, root2):
@@ -1770,7 +2039,9 @@ class BinaryTree:
             return True
         return self.are_structurally_same_tree(root1.left, root2.left) and self.are_structurally_same_tree(root1.right, root2.right)
 
+    #Are trees structurally the same:  True
 
+    #same as is_symmetric of each other
     def are_mirror_of_each_other(self, root1, root2):
         if root1 is None and root2 is None:
             return True
@@ -1780,8 +2051,22 @@ class BinaryTree:
             return False
         return self.are_mirror_of_each_other(root1.left, root2.right) and self.are_mirror_of_each_other(root1.right, root2.left)
 
+    #Are trees mirror of each other:  False
 
-
+    def is_balanced(self, root):
+        
+        if root is None:
+            return True
+        left_height = self.height_rec(root.left)
+        right_height = self.height_rec(root.right)
+        
+        if abs(left_height - right_height) <= 1 and \
+            self.is_balanced(root.left) and self.is_balanced(root.right):
+            return True
+        
+        return False
+    
+    #Is the true balanced:  True
 
 #Test:
 print("#---------Create Tree instance----------#")
@@ -1851,7 +2136,7 @@ print()
 print("PostOrder Traversal (recur) -->", end="")
 BT.post_order_recur(BT.root)
 print()
-BT.postOrderIter()
+#BT.postOrderIter(BT.root)
 
 
 print()
@@ -1881,6 +2166,15 @@ print()
 
 print("Lowest common ancestor of two nodes")
 print(BT.LCA(BT.root, 12, 4))
+print()
+
+
+print("Root to Leaf paths")
+BT.root_to_leaf_paths(BT.root, [], 0)
+print()
+
+
+print("Has path Sum of 19", BT.has_path_sum(BT.root, 19))
 print()
 
 #Aggregate Methods
@@ -2040,6 +2334,10 @@ print()
 print("Are trees mirror of each other: ",BT1.are_mirror_of_each_other(BT.root, BT1.root))
 print()
 
+print()
+print("Is the true balanced: ", BT1.is_balanced(BT1.root))
+print()
+
 #DELETE TREE
 print("#----------Deletion Methods--------------#")
 print()
@@ -2071,6 +2369,26 @@ Output
     4
 
 #----------Traversal Methods----------------#
+
+Only print extreme left nodes in reverse
+4 5 10 None
+
+
+Only print extreme left starting from root
+10 5 4 None
+
+
+Only print extreme right in reverse
+16 15 10 None
+
+
+All left nodes
+10 5 4 12 None
+
+
+All right nodes
+10 6 15 16 None
+
 PreOrder Traversal (recur) -->10 5 4 6 15 12 16 
 PreOrder Traversal (iter) -->10 5 4 6 15 12 16 
 
@@ -2079,7 +2397,7 @@ InOrder Traversal (iter) -->4 5 6 10 12 15 16
 Kth node in InOrder Traversal (iter) -->4 
 
 PostOrder Traversal (recur) -->4 6 5 12 16 15 10 
-PostOrder Traversal (iter) -->4 6 5 12 16 15 10 
+
 
 LevelOrder Traversal -->10 5 15 4 6 12 16 
 
@@ -2094,11 +2412,15 @@ Reverse LevelOrder Traversal
 Print all ancestors of a node
 15,10,
 Print nodes in a spiral order
-10  
-5 15 16  
-12  
-6  
-4  
+10 5 15 16 12 6 4 
+Lowest common ancestor of two nodes
+None
+
+Root to Leaf paths
+[10, 5, 4]
+[10, 5, 6]
+[10, 15, 12]
+[10, 15, 16]
 
 
 #----------Aggregated Methods--------------#
@@ -2164,8 +2486,11 @@ Top View of the tree is
 
 Right View of the binary Tree is :
 10 15 16 
+10 15 16 
 
 Left View of the tree (recur) is:
+10 5 4 
+Left view iterative of the tree is: 
 10 5 4 
 
 #---------Remove node 4 from the tree------#
@@ -2183,7 +2508,7 @@ Left View of the tree (recur) is:
   5
 
 #----------Construction Methods--------------#
-  
+
 Construct BT from inorder and pre-order sequence in a list
 
     70
@@ -2249,7 +2574,7 @@ Convert BT tree to its mirror
 
     4
 
-Node 4 removed. Display Tree again
+Node 4 removed which had no children. Display Tree again
 
     16
 
@@ -2263,10 +2588,26 @@ Node 4 removed. Display Tree again
 
   5
 
+
+Node 15 removed which had two rows. Display Tree again
+
+  16
+
+    12
+
+10
+
+    6
+
+  5
+
 Are trees structurally the same:  True
 
 
-Are trees mirror of each other:  True
+Are trees mirror of each other:  False
+
+
+Is the true balanced:  True
 
 #----------Deletion Methods--------------#
 
