@@ -1373,37 +1373,51 @@ o/p
 # Given a set of non-negative integers and a value sum,
 # determine if there is a subset of a given set with sum equal to sum
 
-def isSubsetSum(set, n, sum):
+def isSubsetSum(arr, n, k):
 
-    if sum == 0:
+    if k == 0:
         return True
-    if n == 0 and sum != 0:
+    if n == 0 and k != 0:
         return False
 
-    if set[n-1] > sum:
-        return isSubsetSum(set, n-1, sum)
+    if arr[n-1] > k:   #last item in the array
+        return isSubsetSum(arr, n-1, k)
 
-    return isSubsetSum(set, n-1, sum) or isSubsetSum(set, n-1, sum-set[n-1])
+    return isSubsetSum(arr, n-1, k) or isSubsetSum(set, n-1, k-arr[n-1]) #target = k-arr[n-1]
 
-set = [1, 2, 1]
-sum = 4
+arr = [1, 2, 1]
+k = 4
 n = len(set)
-if isSubsetSum(set, n, sum) == True:
+if isSubsetSum(arr, n, k) == True:
     print("Found a subset with given sum")
 else:
     print("No subset with given sum")
 
 #output Found a subset with given sum
 """
-              3 4  (n=3-1=2, sum=4)
-            /      r=True      \
-           2 4                  2   3
-         / F   \               /    T   \
-       1 4     1 2 (4-2=2)    1 3        1  1  (n-1=1, 3-set[1]=1)
-      / F \    / F   \       /  \       / T  \
-    0 4  0 3  0 2   0 1    0 3  0,2   0 1   0  0
-    rF   rF   F     F      F    F       F     T
-                   
+                              subsetSum(arr, 4)
+                             /
+                             /
+                  ss(arr,3, 4)
+                  /         \
+                 /           \ 
+      ss(arr, 2, 4)           ss(arr,2,3)
+     /           \            |           \
+    /             \           |             \
+  ss(arr, 1, 4)    \         ss(arr,1,3)      \
+   /   rF  \        \         /      \
+  /         \        \       /        \ 
+  /          \        \    ss(a,0,3)  ss(a,0,3)
+ /            \        \   r Fal      ret Fal
+ /             \        \
+  /             \      ss(arr,1, 3)
+ ss(arr, 0, 4)   \          |  rF   \
+ ret False     ss(arr,1,3)  |        \
+            /  rF  \       ss(a, 0,3) \ 
+          /         \      ret Fal    ss(arr,0,2) 
+        /      ss(arr,0, 2)           ret Fal
+ss(arr,0,3)   ret Fal
+ret Fal      
 """
 
 
