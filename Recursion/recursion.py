@@ -173,6 +173,7 @@ def gcd_v1(a, b):
 
 print("gcd of 539,84 is", gcd_v1(539, 84))
 #gcd of 539,84 is 7
+
 """
         1      gcd(539, 84)
           10     /ret 7
@@ -195,6 +196,7 @@ def sum_of_list_recur(A):
 A=[1,2,3,41,5]
 print("sum_of_list_recur", sum_of_list_recur(A))
 #sum_of_list_recur 52
+
 """
           1          sum([1,2,3,41,5])
             12       /ret 52
@@ -230,6 +232,7 @@ def sum_list_len_alt2(A):
 B = [5,3,4,2,3]
 print("sum_list_len_alt2", sum_list_len_alt2(B))
 #sum_list_len_alt2 17
+
 
 """
        1     sum(5,3,4,2,3) len=5  middle( 5/2) = 2
@@ -285,6 +288,7 @@ def sum_list_limits_2(A, lower, upper):
 A2 = [4,2,3,1,6]
 print("sum_list_limits_2", sum_list_limits_2(A2, 0, len(A2)-1))
 #sum_list_limits_2 16
+
 """
    1    sum(4,2,3,1,6), 0, 4
     12   /ret 4 + 12 =16
@@ -456,6 +460,7 @@ print("add digits", add_digits(326))
   
 """
 
+#very similar to iterative solution. 
 def reverse_sequence(S, lo, hi):
     if lo < hi:
         S[lo], S[hi] = S[hi], S[lo] 
@@ -465,6 +470,7 @@ def reverse_sequence(S, lo, hi):
 A= [4,3,6,2,8,9,5]
 reverse_sequence(A, 0, 6)
 print("reversed", A)
+#reversed [5, 9, 8, 2, 6, 3, 4]
 
 def print_digits_reversed_vert(n):
     if n < 10:
@@ -476,11 +482,11 @@ def print_digits_reversed_vert(n):
 
 print(print_digits_reversed_vert(1234))
 
-
 #4
 #3
 #2
 #1
+
 """  
    1    print(1234)
          |
@@ -555,8 +561,8 @@ print("max_list_length_DAC1", max_item_in_list_DAC1(A))
              /      14                 \
             /                           \
   2    max(22,-1),mid=2//2=1      8     max(5,56), mid=2/2=1
-      /  m1=22,m2=-1 \                /  m1=5 m2=56 ret=56 \ 
-    /   7 ret 22        \             /         13          \
+      /  m1=22,m2=-1 \                /  m1=5 m2=56 ret=56  \ 
+    /   7 ret 22      \              /         13            \
    /                   \       9   max(5)             11    max(56)
 3  max(22),   5  max(-1)       10  ret 5              12    ret 56
 4 ret 22      6   ret -1
@@ -649,6 +655,7 @@ def decimal_to_binary(n):
 
 print("Decimal to binary", decimal_to_binary(8))
 #Decimal to binary 1000
+
 """
     1. d2B(8)
     | return 1000
@@ -924,8 +931,8 @@ def flatten(A):
         return [A[0]] + flatten(A[1:])
 
 A = [1,[1,2],[3],4, [3,4]]
-
 print("Flattened list is ", flatten(A))
+#Flattened list is  [1, 1, 2, 3, 4, 3, 4]
 
 
 def get_smaller_than_or_equal_to(A, x):
@@ -1062,6 +1069,7 @@ def select_sort_rec_1(a):
 
 A = [7,5,23,3,8,4]
 print(select_sort_rec_1(A))
+#[3, 4, 5, 7, 8, 23]
 
 def merge_sort(A):
     n = len(A)
@@ -1132,7 +1140,6 @@ print(pascal(8))
 #[1, 8, 28, 56, 70, 56, 28, 8, 1]
 
 
-
 #ABC -->0/0 --> call rec ABC
     #-->1/1 -->call ABC  2/2 call ABC [l==r match, print (ABC)]
     #ABC
@@ -1165,7 +1172,15 @@ B="ABC"
 n = len(B)
 A = list(B)
 perm_of_list(A, 0, n-1)
+
 """
+['A', 'B', 'C']
+['A', 'C', 'B']
+['B', 'A', 'C']
+['B', 'C', 'A']
+['C', 'B', 'A']
+['C', 'A', 'B']
+
                  1 permutation of    (ABC)
                /         \                 \
       swap 0/0/   swp 1/0 \         swp 2/0 \ 
@@ -1180,8 +1195,6 @@ swap 1,1/  2/1 \      1/1 /   2/1 \       1/1 /    2/1\
      |         |        |        |          |           |
    prnt       prnt     prnt     prnt        prnt       print
  
-
-
 """
 
 #Catalan numbers
@@ -1207,8 +1220,8 @@ print()
 
 
 
-#Binomial Coefficient
-#gives number of ways, disregarding order,
+#Binomial Coefficient -- n choose k 
+#gives number of ways, disregarding order, 
 #that k object can be chosen from among n objects.
 #formally k element subset of n element set
 def binomialCoeff(n, k):
@@ -1256,6 +1269,7 @@ def steps_possible(n):
     return 1 + steps_possible(n-1) + steps_possible(n-2) + steps_possible(n-3)
 
 print("Possible ways a child can jump", steps_possible(3))
+#Possible ways a child can jump 4
 
 """
             1               steps_possible(3)   
@@ -1296,7 +1310,7 @@ def count(S, m, n):
 arr=[1,2,3]
 m = len(arr)
 print("coin change counts", count(arr, m, 4))
-
+#coin change counts 4
 
 
 
@@ -1545,7 +1559,7 @@ house_worth = [6,7,1,30,8,2,4]
 value= max_value_from_house(house_worth, 0)
 print("Max stolen value is", value)
 
-#ax stolen value is 41
+#Max stolen value is 41
 
 
 #Edit Distance problem. Convert one string to another
@@ -1634,7 +1648,7 @@ print("Length of LCS is ", lcs(X, Y, len(X), len(Y)))
                /                         \                    /            \ 
               /                            \                  /               \ 
         lcs(AX,        AYZX)                lcs(AXY, AYZ)   lcs(AXY, AYZX)      lcs(AXYT, AY)
-        /          r1         \               \            /          \                /   \ 
+        /          r1        \                 \            /          \                /   \ 
        /                      \                 \...       /           \               /    \ 
       lcs(A, AYZX)             lcs(AX, AYZ)              lcs(AX, AYZX)  lcs(AX, AYZ)   ..     ..
      /     r1    \               /   r1     \           return 1             \ 
