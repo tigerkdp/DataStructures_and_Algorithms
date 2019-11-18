@@ -1372,7 +1372,7 @@ o/p
 #Subset of sum problem
 # Given a set of non-negative integers and a value sum,
 # determine if there is a subset of a given set with sum equal to sum
-
+"""
 def isSubsetSum(arr, n, k):
 
     if k == 0:
@@ -1383,18 +1383,18 @@ def isSubsetSum(arr, n, k):
     if arr[n-1] > k:   #last item in the array
         return isSubsetSum(arr, n-1, k)
 
-    return isSubsetSum(arr, n-1, k) or isSubsetSum(set, n-1, k-arr[n-1]) #target = k-arr[n-1]
+    return isSubsetSum(arr, n-1, k) or isSubsetSum(set, n-1, k - arr[n-1]) #target = k-arr[n-1]
 
 arr = [1, 2, 1]
 k = 4
-n = len(set)
+n = len(arr)
 if isSubsetSum(arr, n, k) == True:
     print("Found a subset with given sum")
 else:
     print("No subset with given sum")
 
 #output Found a subset with given sum
-"""
+
                               subsetSum(arr, 4)
                              /
                              /
@@ -1405,21 +1405,21 @@ else:
      /           \            |           \
     /             \           |             \
   ss(arr, 1, 4)    \         ss(arr,1,3)      \
-   /   rF  \        \         /      \
-  /         \        \       /        \ 
-  /          \        \    ss(a,0,3)  ss(a,0,3)
- /            \        \   r Fal      ret Fal
- /             \        \
-  /             \      ss(arr,1, 3)
- ss(arr, 0, 4)   \          |  rF   \
- ret False     ss(arr,1,3)  |        \
-            /  rF  \       ss(a, 0,3) \ 
-          /         \      ret Fal    ss(arr,0,2) 
-        /      ss(arr,0, 2)           ret Fal
-ss(arr,0,3)   ret Fal
-ret Fal      
+   /   rF  \        \         /      \         \
+  /         \        \       /        \         \
+  /          \        \    ss(a,0,3)  ss(a,0,3) \
+ /            \        \   r Fal      ret Fal    \
+ /             \        \                         \
+  /             \      ss(arr,1, 3)                \
+ ss(arr, 0, 4)   \          |  rF   \               \ 
+ ret False     ss(arr,1,3)  |        \               \
+            /  rF  \       ss(a, 0,3) \               \
+          /         \      ret Fal    ss(arr,0,2)    ss(arr,1,1)
+        /      ss(arr,0, 2)           ret Fal       /      \
+ss(arr,0,3)   ret Fal                              /        \ 
+ret Fal                                     ss(arr,0,1)    ss(arr, 0, 1)
+                                           ret Fal        ret Fal
 """
-
 
 
 #Cutting rod

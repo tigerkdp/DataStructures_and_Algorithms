@@ -146,7 +146,7 @@ def isListSorted(A, index):
         
 A=[1,2,3,4,5,6]
 isListSorted(A, len(A)-1)
-
+#sorted
 
 #Sum of all unique elements
 def sum_unique_elements(A):
@@ -216,8 +216,7 @@ def reverse_list(A):
     hi = len(A)-1
     while lo < hi:
         A[lo], A[hi] = A[hi], A[lo]
-        lo +=1
-        hi -=1
+        lo, hi = lo + 1, hi - 1
     print("Reversed Array", A)
         
 
@@ -248,8 +247,9 @@ def printKthfromLast(A, k):
     
 A=[1,2,3,4,5,6,7]
 printKthfromLast(A, 4)
+#Kth from last Python way 4
 
-#
+
 def check_duplicates_brute_force(A):
     n = len(A)
     for i in range(0, n):
@@ -303,6 +303,7 @@ if check_dups_within_k_unsorted(A, n, 3):
     print("Yes Dups within k distance")
 else:
     print("No dups with k distance")
+#Yes Dups within k distance
 
 #whether n is even or odd.
 def evenOrOdd(n):
@@ -312,6 +313,8 @@ def evenOrOdd(n):
         print("odd")
         
 evenOrOdd(7)
+#odd
+
 
 #Segregage even and odd numbers
 #read the array and move even numbers in front of the list
@@ -360,6 +363,8 @@ def primeList(N):
     return alist
     
 print("Prime numbers from 1 to n is", primeList(100))
+#Prime numbers from 1 to n is [2, 3, 5, 7, 11, 13, 
+#17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
         
 #is prime
 def isPrime(N):
@@ -369,7 +374,7 @@ def isPrime(N):
     return True
        
 print(isPrime(67))
-
+#True
 
 #split the array and add the first part to the end
 
@@ -383,6 +388,7 @@ def split_add_to_end(A, k):
     
 A = [12,10,4,5,6,32,43]
 split_add_to_end(A, 3)
+#Added at the end [5, 6, 32, 43, 12, 10, 4]
 
 #have to return the index of the array
 #or set the remaining values to None.
@@ -639,6 +645,8 @@ def rotateArray(A, d):
 A = [1,2,3, 4,5,6,7]
 rotateArray(A, 3)
 
+#[4, 5, 6, 7, 1, 2, 3] 
+
 
 #Common elements in 3 sorted arrays
 # while lo < hi. 
@@ -715,6 +723,7 @@ def find_next_higher(A, k):
 A = [1,2,3,4,5,6,8,10,12,24,25]
 k = 6
 print("next higher than k {} is".format(k), find_next_higher(A, k))
+#next higher than k 6 is 8
 
 print()
 #  using math technique.  
@@ -729,8 +738,7 @@ def get_missing_num(A):
 
 A = [1,2,4,5,6]
 print("missing number is ", get_missing_num(A))
-#output 3
-
+#missing number is  3.0
 
 print()
 #Dutch National
@@ -757,6 +765,7 @@ def DutchNational(A):
     
 A=[1,0,2,0,1,0,0,1,2,2,1,0]
 DutchNational(A)
+#Dutch National: [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2]
 
 print()
 #Common elements in 3 sorted arrays
@@ -771,7 +780,7 @@ def InterSect1(A, B,C):
     Clo , Chi = 0, len(C)
     while Alo < Ahi and Blo < Bhi and Clo < Chi:
         if A[Alo] == B[Blo] and B[Blo] == C[Clo]:
-            print("Interseciton element:", A[Alo])
+            print("Intersection element:", A[Alo])
             Alo +=1 
             Blo +=1
             Clo +=1
@@ -789,6 +798,7 @@ A = [1,2,3,4,5]
 B = [1,3]
 C = [3,4,5]
 InterSect1(A, B,C)
+#Interseciton element: 3
 
 
 print()
@@ -822,6 +832,7 @@ def mergeTwoSortedArrays(A, B):
 A= [1,4,5,6,9,10]
 B = [2,3,7, 8, 11,12,16,53]
 mergeTwoSortedArrays(A, B) 
+#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 53]
 
 #find two elems whose sum is closes to 0
 # sort all elem of input array
@@ -869,6 +880,7 @@ def two_elements_whose_sum_is_closest_to_zero(A):
 
 A = [1,60, -20, 22, -98, 86, 21]
 two_elements_whose_sum_is_closest_to_zero(A)
+#The two elements whose sum is min are  -20 21
         
 
 #assume no duplicates in an array
@@ -913,7 +925,7 @@ def search_in_rotated_array(A, data):
 A = [3,4,5,6,1,2]
 k  = 1 
 print("Item found at index ", search_in_rotated_array(A, k))
-
+#Item found at index  4
 
 #max subarray
 # max_ending_her: max(x, max_ending_here + x)
@@ -928,6 +940,8 @@ def max_subarray(A):
 
 A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
 print("Max subarray", max_subarray(A))
+#Max subarray 6
+
 
 """
 max_ending_here = -2. max_so_far = -2
@@ -995,8 +1009,7 @@ def contiguous_max_sub_array(A):
 
 A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
 print("contiguous max subarry ", contiguous_max_sub_array(A))
-
-
+#contiguous max subarry  6
 
 
 # find  two sum.  
@@ -1057,6 +1070,7 @@ def has_two_sum_in_sorted_array(A, target):
 A = [2,7,11,15]
 target = 9
 print("Two elements sum in the array", has_two_sum_in_sorted_array(A, target))
+#Two elements sum in the array True
 
 # Two for loops needed.  
 #First for loop from 0 to n-1.  For i in 0 to n.
@@ -1087,6 +1101,8 @@ target = 50
 print(find_three_sum(A, target))
 #output
 #Triplet is  1 45 4
+
+
 print()
 def has_three_sum(A, target):
 
@@ -1198,8 +1214,8 @@ def localMaxima(A):
     print("Local Maxima ", res)
         
 A = [3,2,33,21,22,11]
-localMaxima(A)  #21 2 11
-
+localMaxima(A)  
+#Local Maxima  [33, 22, 3]
 
 #Local Minima
 print()
@@ -1218,7 +1234,8 @@ def localMinima(A):
     print("Local Minima", res)
     
 A = [2,3,33,21,22,11]
-localMinima(A)  #21 2 11
+localMinima(A) 
+#Local Minima [21, 2, 11]
 
 
 #Clycic rotation
@@ -1235,7 +1252,7 @@ def cyclicRotationUnSorted(A, K):
     
 A = [3,8,9,7,4]
 cyclicRotationUnSorted(A, 3)
-
+#Cyclic rotaion by 3 [9, 7, 4, 3, 8]
 
 
 #Necklace Beads
@@ -1282,8 +1299,8 @@ A[5] = 6
 A[6] = 2 
 
 #output
-#(5, 6, 2, 0 )  (4,1) (3).   Max Length 4
-
+#(5, 6, 2, 0 )  (4,1) (3).
+#Max beads found in a necklace 4
 
 #Prod without the index
 #prod = 1, prod=1(prod)*2=2, prod=2(prod)*5=8, prod=8(prod)*5=40
@@ -1322,7 +1339,7 @@ A = [2,4,5,6]
 prod_without_index(A)
 # Res [1, 2, 8, 40]
 #[120, 60, 48, 40]
-
+#Prod of all elements besides self [120, 60, 48, 40]
 
 #sum of right side = sum of left side 
 def equilibrium(A):
@@ -1338,6 +1355,7 @@ def equilibrium(A):
             
 A = [5,5,12,10,12]
 print(equilibrium(A))
+#True
 
 
 #print all sublist
@@ -1349,10 +1367,12 @@ def printSubArrayNew(A):
         for j in range(i+1, n+1): 
             sub = A[i:j]
             sublist.append(sub)
-    print("Print every sublists", sublist)
+    print("Print every sublists 1", sublist)
         
 A = [1,2,3,4]
 printSubArrayNew(A)
+#Print every sublists [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [2], 
+#[2, 3], [2, 3, 4], [3], [3, 4], [4]]
 
 #
 import math
@@ -1365,16 +1385,18 @@ def printSubArrayNew1(A):
             sub = A[i:j]
             sublist.append(sub)
     
-    print("Print every sublists", sublist)
+    print("Print every sublists 2", sublist)
     
     minAvg = math.inf
     for i in sublist:
         avg = sum(i) // len(i)  
         if avg < minAvg:
             minAvg = avg
-    print(minAvg)
+    print("Average of the sublist is ", minAvg)
         
 A = [2,3,4,5]
 printSubArrayNew1(A)
-
+#Print every sublists 2 [[2], [2, 3], [2, 3, 4], [2, 3, 4, 5], [3], 
+#[3, 4], [3, 4, 5], [4], [4, 5], [5]]
+#Average of the sublist is  2
 
