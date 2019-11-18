@@ -834,6 +834,7 @@ B = [2,3,7, 8, 11,12,16,53]
 mergeTwoSortedArrays(A, B) 
 #[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 53]
 
+
 #find two elems whose sum is closes to 0
 # sort all elem of input array
 # use lo and high to traverse from both sides.
@@ -1399,4 +1400,49 @@ printSubArrayNew1(A)
 #Print every sublists 2 [[2], [2, 3], [2, 3, 4], [2, 3, 4, 5], [3], 
 #[3, 4], [3, 4, 5], [4], [4, 5], [5]]
 #Average of the sublist is  2
+
+
+#check if subarray with 0 sum exists or not.
+#use set
+def zero_sum_sub_array(A,n):
+    
+    s = {}
+    out = []
+    
+    sum1 = 0
+    for i in range(n):
+        sum1 += A[i]
+        
+        #if current sum is 0, we found a subarray from indx 0 and ending at i
+        if sum1 == 0:
+            out.append((0, i))
+        al = []
+        
+        #check if curr sum is in hash table or not
+        #if curr sum already exist then it indicates this sum was the sum
+        # of some subarray elem a[0]...a[i] and now the same sum
+        # is obtained for the curr subarry a[0]..a[j]
+        # which means sum of of subarray a[i+1]..a[j] must be 0
+        #insert curr sum into hash table
+        if sum1 in s:
+            al = s.get(sum1)
+            for it in range(len(al)):
+                out.append((al[it]+1, i))
+        al.append(i)
+        s[sum1] = al 
+    return out      
+    
+def printOutput(output):
+    for i in output:
+        print("Subarray found from index " + str(i[0]), str(i[1]))
+      
+A = [3,4,-7,3,1,3,1,-4,-2,-2]
+n = len(A)
+out= zero_sum_sub_array(A, n)
+if len(out) == 0:
+    print("No subarray exist")
+else:
+    printOutput(out)
+
+    
 
