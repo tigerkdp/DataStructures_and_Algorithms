@@ -54,13 +54,15 @@ Array
 40) Find three sum that matches k (Three sum)
 41) Optimal way to merge files (Optimal Merge - Heap)
 42) Local Maxima
+50) Find the park element
 43) Local Minima
 44) Cyclic Rotation in an unsorted array
 45) Necklace Beads of items in a list
 46) Product of all items besides index item
 47) Equilibrium (sum of left items == sum of right items)
 48) Print all sublists 
-49) Print all sublists 
+49) Print all sublists alternate
+51) zero_sum_sub_array
 
 """
 
@@ -1234,10 +1236,10 @@ def peak_element(A, n):
     return find_peak_elem_util(A, 0, n-1, n)
 
 
-A = [1,3,20, 4,1,0]
+A = [1,3,20,4,1,0]
 n = len(A)
 print("Index of a peak point elem is", peak_element(A, n))
-
+#Index of a peak point elem is 2
 
 #Local Minima
 print()
@@ -1464,3 +1466,6 @@ if len(out) == 0:
     print("No subarray exist")
 else:
     printOutput(out)
+    
+    
+
