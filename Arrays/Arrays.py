@@ -1218,6 +1218,27 @@ A = [3,2,33,21,22,11]
 localMaxima(A)  
 #Local Maxima  [33, 22, 3]
 
+def find_peak_elem_util(A, lo, hi, n):
+    
+    mid = lo + (hi - lo)//2
+    
+    if ((mid == 0 or A[mid-1] <= A[mid]) and (mid == n-1 or A[mid+1] <= A[mid])):
+        return mid
+    elif mid > 0 and A[mid-1] > A[mid]:
+        return find_peak_elem_util(A, lo, mid-1, n)
+    else:
+        return find_peak_elem_util(A, mid+1, hi, n)
+        
+
+def peak_element(A, n):
+    return find_peak_elem_util(A, 0, n-1, n)
+
+
+A = [1,3,20, 4,1,0]
+n = len(A)
+print("Index of a peak point elem is", peak_element(A, n))
+
+
 #Local Minima
 print()
 def localMinima(A):
@@ -1420,7 +1441,7 @@ def zero_sum_sub_array(A,n):
         
         #check if curr sum is in hash table or not
         #if curr sum already exist then it indicates this sum was the sum
-        # of some subarray elem a[0]...a[i] and now the same sum
+        # of some subarray elem a[0]...a[i] and now the same sum-
         # is obtained for the curr subarry a[0]..a[j]
         # which means sum of of subarray a[i+1]..a[j] must be 0
         #insert curr sum into hash table
@@ -1443,5 +1464,3 @@ if len(out) == 0:
     print("No subarray exist")
 else:
     printOutput(out)
-
-
