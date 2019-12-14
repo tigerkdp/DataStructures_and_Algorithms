@@ -990,6 +990,7 @@ class BinaryTree:
 
    """       
     #print root to left path     
+    #path length will be 0 and path is a list []
     def root_to_leaf_paths(self, root, path, pathlen):
         
         if root is None:
@@ -1006,6 +1007,8 @@ class BinaryTree:
         else:
             self.root_to_leaf_paths(root.left, path, pathlen)
             self.root_to_leaf_paths(root.right, path, pathlen)
+         
+            
             
     """
     Root to Leaf paths

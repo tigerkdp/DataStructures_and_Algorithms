@@ -674,4 +674,19 @@ print_num_in_words(842453)
 #Eight Hundred  Forty Two Thousand Four Hundred  Fifty Three
 
 
+def shortestToChar(S, C):
+   index = [i for i, x in enumerate(S) if x == C]
+   print(index)
+   ans = []
+   for i in range(len(S)):
+      ans.append(min([abs(x-i) for x in index]))
+   print(ans)
+
+S="abaa"
+C="b"
+shortestToChar(S, C)
+
+#Input: S = "loveleetcode", C = 'e'
+#Output: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]
+
     
