@@ -6,6 +6,9 @@ Created on Sun Dec 15 14:20:26 2019
 @author: kdp
 """
 
+
+#Check well formed bracket symbols 
+
 def is_well_formed(s):
     
     left_chars = []
@@ -130,6 +133,37 @@ stack.pop()
 stack.pop()
 
 
-#min stack in constant time
+#Checking Balancing of Symbols
 
-def 
+def balance_of_symbols(expr):
+    
+    open_symbols = ['(', '[', '{']
+    closed_symbols = [')', ']', '}']
+    sym_dict = {')':'(',   '}':'{', ']':'['}
+    
+    sym_stack = []
+    
+    n = len(expr)
+    
+    for i in range(n):
+        if expr[i] in open_symbols:
+            sym_stack.append(expr[i])
+            
+        if expr[i] in closed_symbols:
+            if sym_stack == []:
+                return False
+    
+            popped = sym_stack.pop()
+            if popped != sym_dict.get(expr[i]):
+                return False
+         
+    return not sym_stack  #true
+
+exp_bool1 = balance_of_symbols("(A+B)+(C+D)")
+print(exp_bool1)
+exp_bool2 = balance_of_symbols("(A+B)+[C+D)")
+print(exp_bool2)
+            
+        
+    
+    
