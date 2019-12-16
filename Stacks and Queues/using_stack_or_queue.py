@@ -28,10 +28,8 @@ ret_bool =is_well_formed("([]){[]}")
 ret_bool = is_well_formed("[(]")
 print(ret_bool)
 
-
             
 #Queue using stacks
-
 
 # caveat: elements should be popped from s1 and pushed into s2
 # when s2 is completely empty
@@ -54,8 +52,7 @@ class queue_using_stacks:
                 item = self.s1.pop()
                 self.s2.append(item)
                     
-        #the first elem popped from s2 will be the first one inserted
-        item = None
+        #remove the top element from S2 if not empty and return        
         if self.s2:
             item = self.s2.pop()
 
@@ -89,7 +86,7 @@ Q1.remove()
 
         
 #Stack using queue:
-class stack_using_queues:
+class stack_using_two_queues:
     
     def __init__(self):
         self.q1 = []
@@ -100,6 +97,7 @@ class stack_using_queues:
             return True
         return False
     
+    #Always append the elements in q1 
     def push(self, new_item):
         self.q1.append(new_item)
         print(new_item, "added to queue at the back" )
@@ -109,18 +107,21 @@ class stack_using_queues:
         if self.q1 == []:
             return "No Item to pop"
         
+        #pop everything from q1 but one element
         while len(self.q1) > 1:
             item = self.q1.pop(0)
             self.q2.append(item)
-            
+                
+        #pop the last element and return this element 
         item = self.q1.pop()
+        #And then make Q1 as Q2 and Q2 as Q1
         self.q1, self.q2 = self.q2, self.q1 
 
         print(item, "item popped from queue as stack")
         return item
     
 print()
-stack = stack_using_queues()
+stack = stack_using_two_queues()
 stack.push(10)
 stack.push(20)
 stack.push(30)
