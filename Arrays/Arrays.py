@@ -1468,4 +1468,21 @@ else:
     printOutput(out)
     
     
+# Given and array A. Find the Spans. 
+# Span is the max number of consecutive elements such that A[j] <= A[j+1]
+# Common in stock market. Max number of consecutive days the price of stock
+# up to the current day has been less than or equal to its price on day i.
 
+def finding_spans2(A):
+    
+    spans = [1] * len(A)
+    n=len(A)
+    for i in range(1,n) :
+        if A[i] >= A[i-1]:
+            spans[i] = spans[i-1]+1
+    print(spans)
+            
+A = [6,3,4,4,2,3,4,5]
+finding_spans2(A)
+        
+    
