@@ -169,7 +169,7 @@ print(exp_bool2)
 # Span is the max number of consecutive elements such that A[j] <= A[j+1]
 # Common in stock market. Max number of consecutive days the price of stock
 # up to the current day has been less than or equal to its price on day i.
-
+# Convert to Stack 
 def finding_spans2(A):
     
     spans = [1] * len(A)
@@ -183,7 +183,7 @@ A = [6,3,4,4,2,3,4,5]
 finding_spans2(A)
         
 
-#Interleave elements of queue using stack and queue
+#Interleave elements of a queue using stack
     
 def interLeaveQueue(A):
     size = len(A)
@@ -193,12 +193,10 @@ def interLeaveQueue(A):
              
     stack = []
     halfsize = size // 2
-    qu = []
          
     #push first half from queue into stack
     for i in range(0, halfsize):
-       dequeued = A.pop(0)
-       stack.append(dequeued)
+       stack.append(A.pop(0))
        # s: 11, 12, 13, 14
        # q: 15, 16, 17, 18
           
@@ -206,13 +204,13 @@ def interLeaveQueue(A):
        # s: 14, 13, 12, 11
        # q: 15 16, 17, 18
           
-     #first pop&push from stack
-     #second pop&push from queue    
+     #first pop from stack and push it back to queue
+     #second pop from queue & push it back to queue    
     while stack:
-       qu.append(stack.pop())      
-       qu.append(A.pop(0))
+       A.append(stack.pop())      
+       A.append(A.pop(0))
        #q: 11, 15, 12, 16, 13, 17, 14,18
-    print("Interleave", qu)
+    print("Interleave", A)
 
 
 A=[11, 12, 13, 14, 15, 16, 17, 18]
