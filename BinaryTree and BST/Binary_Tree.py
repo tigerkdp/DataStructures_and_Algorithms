@@ -2280,8 +2280,9 @@ print()
 # CONSTRUCTION METHODS
 print("#----------Construction Methods--------------#")
 print()
-#root = BT.sum_tree(BT.root)  --temporarily commented to test conversion to mirror tree
-#BT.display(BT.root, 0)
+print("Sum Tree")
+root = BT.sum_tree(BT.root)  #temporarily commented to test conversion to mirror tree
+BT.display(BT.root, 0)
 
 print("Construct BT from inorder and pre-order sequence in a list")
 inorder = [20, 30, 35, 40, 45, 50, 55, 60, 70]

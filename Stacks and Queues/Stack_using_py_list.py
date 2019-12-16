@@ -10,11 +10,19 @@ class ListStack:
     
     def __init__(self):
         self.stack = []
+        self.min_stack = []
         
     def push(self, item):
         self.stack.append(item)
+        
+        if self.min_stack:
+            if self.min_stack[-1] > item:
+                self.min_stack.append(item)
+        else:
+            self.min_stack.append(item)
     
     def peek(self):
+        print(self.stack[-1])
         return self.stack[-1]
     
     def size(self):
@@ -31,7 +39,11 @@ class ListStack:
             print("Empty - cant pop")
             return 0
         else: 
-            return self.stack.pop()
+            popped = self.stack.pop()
+            if popped <= self.min_stack[-1]:
+                self.min_stack.pop()
+            return popped 
+        
         
     def display(self):
         print(self.stack, sep=",")
@@ -44,7 +56,8 @@ class ListStack:
          print(self.stack)
          
     def minValue(self):
-        return min(self.stack)
+        print(self.min_stack[-1])
+        return self.min_stack[-1]
         
     def maxValue(self):
         return max(self.stack)
@@ -58,24 +71,30 @@ class ListStack:
                 del temp[i]
         self.stack = temp
         
+        
+
+        
+        
+        
 
 #test:
 ls = ListStack()
 ls.push(1)
 ls.push(2)
 ls.push(3)
-ls.push(3)
-ls.display()  #[1, 2, 3, 3]
+ls.push(4)
+ls.display()  #[1, 2, 3, 4]
 
 print(ls.size())  #4
-ls.pop()
-ls.display() #[1, 2, 3]
-ls.peek() 
+ls.push(-1)
+ls.minValue()  #-1 
+ls.display() #[1, 2, 3, 4,-1]
+ls.peek()  #-1
 ls.push(3)
 ls.push(4)
 ls.push(4)
 ls.push(5)
-print(ls.size())  #7
+print(ls.size())  #9
 ls.display()          #[1, 2, 3, 3, 4, 4, 5]
 ls.displayReverse()   #[5, 4, 4, 3, 3, 2, 1]
 ls.sortStack()        #[1, 2, 3, 3, 4, 4, 5]
