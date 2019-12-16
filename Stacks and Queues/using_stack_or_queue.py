@@ -182,4 +182,73 @@ def finding_spans2(A):
 A = [6,3,4,4,2,3,4,5]
 finding_spans2(A)
         
+
+#Interleave elements of queue using stack and queue
     
+def interLeaveQueue(A):
+    size = len(A)
+    if size % 2 != 0:
+       print("Enter even numbers of items")
+       return
+             
+    stack = []
+    halfsize = size // 2
+    qu = []
+         
+    #push first half from queue into stack
+    for i in range(0, halfsize):
+       dequeued = A.pop(0)
+       stack.append(dequeued)
+       # s: 11, 12, 13, 14
+       # q: 15, 16, 17, 18
+          
+    stack.reverse()
+       # s: 14, 13, 12, 11
+       # q: 15 16, 17, 18
+          
+     #first pop&push from stack
+     #second pop&push from queue    
+    while stack:
+       qu.append(stack.pop())      
+       qu.append(A.pop(0))
+       #q: 11, 15, 12, 16, 13, 17, 14,18
+    print("Interleave", qu)
+
+
+A=[11, 12, 13, 14, 15, 16, 17, 18]
+interLeaveQueue(A)
+
+
+
+# reverse k items from a queue using temp stack 
+def reverseK(A, k):
+   if k > len(A):
+      return
+  
+   stack = []
+   
+   # dequeue from queue and add to stack elements up to k
+   i = 0
+   while len(A) > 1 and i < k:  #i is less than k  (0,1,2,3 items)
+      dequeued = A.pop(0)
+      stack.append(dequeued)
+      i+=1
+          
+   #pop from stack and add to queue (rear) 
+   while stack:
+      popped = stack.pop()
+      A.append(popped)
+             
+   #pop remaining items of the queue
+   #and add them at the end again to the queue
+   i = 0
+   qs = len(A)
+   while i < qs-k:  #i < 8-4  (0,1,2,3)
+      dequeued = A.pop(0)
+      A.append(dequeued)
+      i+=1
+      
+   print("Reverse K items from Queue", A)
+    
+A = [11, 15, 12, 16, 13, 17, 14, 18]
+reverseK(A, 4)
