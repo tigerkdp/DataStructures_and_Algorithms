@@ -371,12 +371,12 @@ print("Prime numbers from 1 to n is", primeList(100))
         
 #is prime
 def isPrime(N):
-    for i in range(2, N):
+    for i in range(2, N//2):
         if N % i == 0:
             return False
     return True
        
-print(isPrime(67))
+print("is prime", isPrime(67))
 #True
 
 #split the array and add the first part to the end
@@ -602,8 +602,19 @@ print("max profit is", buy_and_sell_stock_prices(prices))
 #O(N)
 def rearrange(A):
     
-    for i in range(len(A)):
-        A[i:i+2] = sorted(A[i : i+2], reverse = i % 2)
+    A.sort()
+    lo = 0
+    hi = len(A)-1
+    
+    while lo < hi:
+        A[lo+1], A[hi] = A[hi], A[lo+1]
+        lo +=2
+        hi -=2 
+    
+    print("rearrange low high, low high", A)
+    
+#    for i in range(len(A)):
+#        A[i:i+2] = sorted(A[i : i+2], reverse = i % 2)
         
 A = [1,19,5,8,24,3,12,2,4,2]
 rearrange(A)
