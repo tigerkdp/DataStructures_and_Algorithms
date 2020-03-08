@@ -668,7 +668,7 @@ print("Decimal to binary", decimal_to_binary(8))
     |
     4. 10 * d2B(1) 
     <2
-        6. 10* 1 + 1%2 = 1 = 10
+        6. 10 * 1 + 1%2 = 1 = 10
     5. return 1
     
 
@@ -933,6 +933,27 @@ def flatten(A):
 A = [1,[1,2],[3],4, [3,4]]
 print("Flattened list is ", flatten(A))
 #Flattened list is  [1, 1, 2, 3, 4, 3, 4]
+
+
+def splitlist(list1):   
+    if len(list1) >1:
+        mid = len(list1)//2
+        a = list1[:mid]
+        b = list1[mid:]
+        if len(a) >= 1:
+            print(a)
+            a = splitlist(a)
+        if len(b) >= 1:
+            print(b)
+            b = splitlist(b)
+         #return merge(a, b)   #just to show mergesort
+    else:   
+        return list1
+
+
+splitlist1 = [10,2,3,4,9, 7, 8, 10]
+print("split list")
+splitlist(splitlist1)
 
 
 def get_smaller_than_or_equal_to(A, x):
