@@ -18,16 +18,16 @@ def is_well_formed(s):
         if char in brack_dict:
             left_chars.append(char)
             print(left_chars)
-        elif not left_chars or brack_dict[left_chars.pop()] != char:
+        elif len(left_chars)==0 or brack_dict[left_chars.pop()] != char:
             return False
         
-    return not left_chars
+    return False
 
 
 ret_bool =is_well_formed("([]){[]}")
-ret_bool = is_well_formed("[(]")
+ret_bool = is_well_formed("[()]")
 print(ret_bool)
-
+['[', '(']
             
 #Queue using stacks
 
