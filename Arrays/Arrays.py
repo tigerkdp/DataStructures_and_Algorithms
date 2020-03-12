@@ -133,7 +133,7 @@ print("Found at position", sorted_search(A, 10))
 print("Found at position", sorted_search(A, 11))
 
 #O(N)
-#output
+#output`
 #7
 #-1
 
