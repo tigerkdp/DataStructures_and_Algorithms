@@ -1,1 +1,3 @@
-# DataStructures_and_Algorithms
+Resources to learn
+
+[Geeks for Geeks](https://www.geeksforgeeks.org)
