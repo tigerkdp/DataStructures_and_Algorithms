@@ -1,6 +1,6 @@
-Resources to learn
+# Resources to learn
 
-Data Structures and Algorithsm
+## Data Structures and Algorithsm
 
 [LeetCode](https://leetcode.com/explore/)
 [Geeks for Geeks](https://www.geeksforgeeks.org)
@@ -15,18 +15,18 @@ Data Structures and Algorithsm
 [Educative DSA Lessons](https://www.educative.io/courses/ds-and-algorithms-in-python)
 
 
-Practice Sites 
+## Practice Sites 
 
 [Edabit](https://github.com/mission-peace/interview/wiki)
 
-AWS 
+## AWS 
 [AWS site](https://aws.amazon.com)
 [AWS Geek](https://www.awsgeek.com)
 [AWS in Plain English](https://expeditedsecurity.com/aws-in-plain-english/)
 [AWS and GCP in Plain English](https://gist.github.com/miglen/f6eef81803a43dad434d)
 
 
-Google Cloud 
+## Google Cloud 
 [Google Cloud Python Lib](https://googleapis.dev/python/cloudasset/latest/index.html)
 
 
