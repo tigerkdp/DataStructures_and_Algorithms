@@ -5,6 +5,8 @@
 [LeetCode](https://leetcode.com/explore/)<br/>
 [Geeks for Geeks](https://www.geeksforgeeks.org)<br/>
 [Techie Delight](https://www.techiedelight.com)<br/>
+[Tutorial Horizon](https://algorithms.tutorialhorizon.com)<br/>
+[Code Spaghetti](http://www.codespaghetti.com/interview-success)<br/>
 [Tushar Roy - Mission Peace](https://github.com/mission-peace/interview)<br/>
 [Tutorialspoint DS](https://www.tutorialspoint.com/data_structures_algorithms/index.htm)<br/>
 [iDeserve](https://www.ideserve.co.in)<br/>
@@ -12,12 +14,13 @@
 [KDN251](https://github.com/kdn251/interviews)<br/>
 [Keon](https://github.com/keon/algorithms)<br/>
 [InterviewCake](https://www.interviewcake.com/table-of-contents)<br/>
-[Educative DSA Lessons](https://www.educative.io/courses/ds-and-algorithms-in-python)<br/>
-
+[Yale Uni - notes on DSA](http://www.cs.yale.edu/homes/aspnes/classes/223/notes.html)<br/>
+[No Stack Dub Stack](https://github.com/no-stack-dub-sack/cs-playground-react/blob/master/RESOURCES.md)
 
 ## Practice Sites 
 
 [Edabit](https://github.com/mission-peace/interview/wiki)<br/>
+[HackerRank](https://www.hackerrank.com/interview/interview-preparation-kit)<br/>
 
 ## AWS 
 [AWS site](https://aws.amazon.com)<br/>
