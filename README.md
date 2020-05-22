@@ -2,8 +2,8 @@
 
 ## Data Structures and Algorithsm
 
-[LeetCode](https://leetcode.com/explore/)
-[Geeks for Geeks](https://www.geeksforgeeks.org)
+[LeetCode](https://leetcode.com/explore/)<br/>
+[Geeks for Geeks](https://www.geeksforgeeks.org)<br/>
 [Techie Delight](https://www.techiedelight.com)
 [Tushar Roy - Mission Peace](https://github.com/mission-peace/interview)
 [Tutorialspoint DS](https://www.tutorialspoint.com/data_structures_algorithms/index.htm)
