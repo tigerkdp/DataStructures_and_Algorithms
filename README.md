@@ -25,6 +25,9 @@
 [List of Algorithms](https://en.wikipedia.org/wiki/List_of_algorithms)<br/>
 [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook/algorithms/algorithms-introduction)<br/>
 [Vaidehi Joshi - basecs](https://medium.com/basecs)<br/>
+[Transitive Bullsh.t](https://blog.transitivebullsh.it/gaming-cs-interviews/)<br/>
+[Brandon's Blog](https://skerritt.blog/tag/university/)<br/>
+[Leetcode Meetup](https://groups.google.com/forum/m/#!forum/leetcode-meetup)<br/>
 
 
 ## Practice Sites 
@@ -40,6 +43,7 @@
 [AWS and GCP in Plain English](https://gist.github.com/miglen/f6eef81803a43dad434d)<br/>
 [Open Guides - AWS](https://github.com/open-guides/og-aws#rds-postgresql)<br/>
 [AWS Python Boto3 Doc](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)<br/>
+[Tutorials Dojo](https://tutorialsdojo.com/aws-certified-solutions-architect-associate-saa-c02/)<br/>
 
 ## Google Cloud 
 [Google Cloud Python Lib](https://googleapis.dev/python/cloudasset/latest/index.html)<br/>
@@ -54,6 +58,22 @@
 
 
 ## Math
+[Interactive Mathematic](https://www.intmath.com)<br/>
+[Better Explained](https://betterexplained.com/archives/)<br/>
+[Math Bootcamps](https://www.mathbootcamps.com)<br/>
+[Math is fun](https://www.mathsisfun.com)<br/>
+[Paul's online notes](https://tutorial.math.lamar.edu)<br/>
+[She Loves Math](https://www.shelovesmath.com/#PreAlgebra)<br/>
+
+## Stats and Probability
+[Machine Learning Mastery - Statistical Hypothesis Tests](https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/)<br/>
+[Willams and Mary Univariate Distribution Relationships](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)<br/>
+[Probability Distributions - Wikipedia](https://en.wikipedia.org/wiki/Probability_distribution)<br/>
 
 
+## Machine Learning
+[Sebastian Ruder - Gradient Desc Optimization algorithms](https://ruder.io/optimizing-gradient-descent/)<br/>
 
+
+## System Design
+[Design Interviews](https://designinterviews.net/category/architecture/)<br/>
