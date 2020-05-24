@@ -44,6 +44,7 @@
 [Open Guides - AWS](https://github.com/open-guides/og-aws#rds-postgresql)<br/>
 [AWS Python Boto3 Doc](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)<br/>
 [Tutorials Dojo](https://tutorialsdojo.com/aws-certified-solutions-architect-associate-saa-c02/)<br/>
+[100 days of Devops](http://100daysofdevops.com/day-100-100-days-of-devops/)<br/>
 
 ## Google Cloud 
 [Google Cloud Python Lib](https://googleapis.dev/python/cloudasset/latest/index.html)<br/>
@@ -62,18 +63,26 @@
 [She Loves Math](https://www.shelovesmath.com/#PreAlgebra)<br/>
 
 ## Stats and Probability
+[Brown edu - Probability](https://seeing-theory.brown.edu/basic-probability/index.html)<br/>
 [Machine Learning Mastery - Statistical Hypothesis Tests](https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/)<br/>
 [Willams and Mary Univariate Distribution Relationships](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)<br/>
 [Probability Distributions - Wikipedia](https://en.wikipedia.org/wiki/Probability_distribution)<br/>
 
 
+
 ## Machine Learning
 [Sebastian Ruder - Gradient Desc Optimization algorithms](https://ruder.io/optimizing-gradient-descent/)<br/>
+[Ismail Mebsout - Blog] - DL CNN RN(https://www.ismailmebsout.com/)<br/>
+[A Tour of Machine Learning Algorithms](https://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/)<br/>
 
+## Data Science
+[CommonLounge](https://www.commonlounge.com/path/4700ef59ccff433ab292770018050b5b)<br/>
 
 ## System Design
 [Grokking the System Design Inteview](https://www.educative.io/courses/grokking-the-system-design-interview)<br/>
+[System Design Cheatsheet](https://gist.github.com/vasanthk/485d1c25737e8e72759f)<br/>
 [Design Interviews](https://designinterviews.net/category/architecture/)<br/>
+[Hired in Tech System Design Question](https://www.hiredintech.com/system-design/)<br/>
 [Checkcheckzz - Company Engg links, Design links](https://github.com/checkcheckzz/system-design-interview/blob/master/README.md)<br/>
 [High Scalability](http://highscalability.com)<br/>
 [Architecture of open source Applications](http://aosabook.org/en/index.html)<br/>
@@ -81,7 +90,10 @@
 [Gurmeet's Links](https://gurmeet.net/computer-science/distributed-systems/index.html)<br/>
 [What every computer science major should know](http://matt.might.net/articles/what-cs-majors-should-know/)<br/>
 [Company Engineering Blogs](https://github.com/kilimchoi/engineering-blogs)<br/>
-
+[All Things Distributed](https://www.allthingsdistributed.com)<br/>
+[Christopher Meiklejohn - Readings in Distributed Systems](http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html)<br/>
+[Wiki - Fallacies of Distributed Computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)<br/>
+[Notes on Distributed Systems or Young Blood](https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/)<br/>
 
 ## Operating System
 [Linux Command cheatsheet](http://matt.might.net/articles/what-cs-majors-should-know/)<br/>
