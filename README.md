@@ -98,3 +98,6 @@
 ## Operating System
 [Linux Command cheatsheet](http://matt.might.net/articles/what-cs-majors-should-know/)<br/>
 
+
+## Tech Leadership
+[Derek Brown tech lead](https://github.com/derekbrown/techlead)<br/>
