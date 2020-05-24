@@ -23,6 +23,8 @@
 [BogoToBogo](https://www.bogotobogo.com/Algorithms/algorithms.php)<br/>
 [The Learning Point](https://www.thelearningpoint.net/computer-science/programming-interview-questions---microsoft-amazon-google-facebook)<br/>
 [List of Algorithms](https://en.wikipedia.org/wiki/List_of_algorithms)<br/>
+[Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook/algorithms/algorithms-introduction)<br/>
+[Vaidehi Joshi - basecs](https://medium.com/basecs)<br/>
 
 
 ## Practice Sites 
@@ -35,8 +37,9 @@
 [AWS site](https://aws.amazon.com)<br/>
 [AWS Geek](https://www.awsgeek.com)<br/>
 [AWS in Plain English](https://expeditedsecurity.com/aws-in-plain-english/)<br/>
-[AWS and GCP in Plain English](https://gist.github.com/miglen/f6eef81803a43dad434d)
-<br/>
+[AWS and GCP in Plain English](https://gist.github.com/miglen/f6eef81803a43dad434d)<br/>
+[Open Guides - AWS](https://github.com/open-guides/og-aws#rds-postgresql)<br/>
+[AWS Python Boto3 Doc](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)<br/>
 
 ## Google Cloud 
 [Google Cloud Python Lib](https://googleapis.dev/python/cloudasset/latest/index.html)<br/>
@@ -45,6 +48,12 @@
 ## Other sites with lists
 [MaximAbramChuck](https://github.com/MaximAbramchuck/awesome-interview-questions)<br/>
 [Karan Project-Solutions](https://github.com/karan/Projects-Solutions)<br/>
+
+## Latency and how to reduce it
+[High Scalability](http://highscalability.com/latency-everywhere-and-it-costs-you-sales-how-crush-it)<br/>
+
+
+## Math
 
 
 
