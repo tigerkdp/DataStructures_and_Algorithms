@@ -52,7 +52,10 @@
 
 ## Google Cloud 
 [Google Cloud Python Lib](https://googleapis.dev/python/cloudasset/latest/index.html)<br/>
-
+[Build a data pipeline with GCP and Airflow](https://tuanchris.com/blog/2020-05-23-build-your-first-data-warehouse-with-airflow-on-gcp/)<br/>
+[Cloud data lake on GCP](https://github.com/tuanchris/cloud-data-lake)<br/>
+[DE Cheatsheet on GCP](https://github.com/ml874/Data-Engineering-on-GCP-Cheatsheet/blob/master/data_engineering_on_GCP.pdf)<br/>
+[Google Cloud for AWS Professionals](https://cloud.google.com/docs/compare/aws)<br/>
 
 ## Other sites with lists
 [MaximAbramChuck](https://github.com/MaximAbramchuck/awesome-interview-questions)<br/>
@@ -65,6 +68,7 @@
 [Math is fun](https://www.mathsisfun.com)<br/>
 [Paul's online notes](https://tutorial.math.lamar.edu)<br/>
 [She Loves Math](https://www.shelovesmath.com/#PreAlgebra)<br/>
+[Khan Academy](https://www.khanacademy.org/math)<br/>
 
 ## Stats and Probability
 [Brown edu - Probability](https://seeing-theory.brown.edu/basic-probability/index.html)<br/>
@@ -73,6 +77,7 @@
 [Probability Distributions - Wikipedia](https://en.wikipedia.org/wiki/Probability_distribution)<br/>
 [Statistics How to](https://www.statisticshowto.com/)<br/>
 [Math Works](https://www.mathworks.com/help/stats/index.html?s_cid=doc_ftr)<br/>
+[Miro - Which Statistical Test to use](https://miro.com/app/board/o9J_ktaDHWU=/)<br/>
 
 ## Machine Learning
 [Sebastian Ruder - Gradient Desc Optimization algorithms](https://ruder.io/optimizing-gradient-descent/)<br/>
@@ -83,6 +88,10 @@
 [Tung M Phung's Blog](https://tungmphung.com/data-mining-machine-learning/)<br/>
 [Deep Learning - Machine learning courses](https://deep-learning-drizzle.github.io/index.html#mlfund)<br/>
 [House of Bots - 35 most popular ML int qa](https://www.houseofbots.com/news-detail/11729-1-35-plus-most-popular-machine-learning-interview-questions-with-answers)<br/>
+[Bfortuner ML Glossary](https://github.com/bfortuner/ml-glossary/tree/master/docs)<br/>
+[Hadrienj Linear Algebra Notes](https://github.com/hadrienj/deepLearningBook-Notes)<br/>
+[catbug - Intro to Linear Algebra](https://pabloinsente.github.io/intro-linear-algebra)<br/>
+[Made with ML - projects - articles](https://madewithml.com/projects/?t=week)<br/>
 
 ## Data Science
 [CommonLounge](https://www.commonlounge.com/path/4700ef59ccff433ab292770018050b5b)<br/>
