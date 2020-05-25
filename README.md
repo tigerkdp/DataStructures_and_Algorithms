@@ -32,13 +32,16 @@
 [Rishabh's SDE Int Questions](https://github.com/rishabh115/SDE-Interview-Questions?files=1)<br/>
 [Java 67](https://www.java67.com/2018/06/data-structure-and-algorithm-interview-questions-programmers.html)<br/>
 [TSiege](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b#file-the-technical-interview-cheat-sheet-md)<br/>
-
+[Top Coder - Comp Prog Tutorials](https://www.topcoder.com/community/competitive-programming/tutorials/)<br/>
+[Petr Mitrichev Blog](https://petr-mitrichev.blogspot.com/)<br/>
+[Rosettacode](http://rosettacode.org/wiki/Category:Programming_Tasks)<br/>
 
 ## Practice Sites 
 
 [Edabit](https://github.com/mission-peace/interview/wiki)<br/>
 [HackerRank](https://www.hackerrank.com/interview/interview-preparation-kit)<br/>
 [ProjectEuler](https://projecteuler.net/archives)<br/>
+[Codility](https://app.codility.com/programmers/lessons/1-iterations/)<br/>
 
 ## AWS 
 [AWS site](https://aws.amazon.com)<br/>
@@ -69,6 +72,7 @@
 [Paul's online notes](https://tutorial.math.lamar.edu)<br/>
 [She Loves Math](https://www.shelovesmath.com/#PreAlgebra)<br/>
 [Khan Academy](https://www.khanacademy.org/math)<br/>
+[Cool Math](https://www.coolmath.com/)<br/>
 
 ## Stats and Probability
 [Brown edu - Probability](https://seeing-theory.brown.edu/basic-probability/index.html)<br/>
@@ -103,7 +107,9 @@
 [Analytics Vidya - Model Eval Error Metrics](https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/)
 [AV - Confusion Matrix](https://www.analyticsvidhya.com/blog/2020/04/confusion-matrix-machine-learning/)
 [Data Science Central](https://www.datasciencecentral.com/)<br/)
+[Tutorialspoint - DS](https://www.tutorialspoint.com/python_data_science/index.htm)<br/>
 [Ankit Rathi](https://ankit-rathi.github.io/data-and-ai/)<br/>
+
 
 ## System Design
 [Grokking the System Design Inteview](https://www.educative.io/courses/grokking-the-system-design-interview)<br/>
@@ -135,9 +141,12 @@
 [Tadasant Blog](https://tadasant.com/blog/how-i-funnelled-my-way-into-9-offers-from-sf-tech-startups)<br/>
 
 ## Python
+[Real Python](https://realpython.com/)<br/>
+[Tutorialspoint - Python](https://www.tutorialspoint.com/python/index.htm)<br/>
 [Python Cheatsheet](https://gto76.github.io/python-cheatsheet/#main)<br/>
 [Python Non-programmers wiki and links](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)<br/>
 [Python Fiddle](http://pythonfiddle.com/)<br/>
+[Tech Vidvan](https://techvidvan.com/tutorials/category/python/)<br/>
 
 ## SQL
 [Select Star SQL](https://selectstarsql.com/)<br/>
@@ -145,3 +154,15 @@
 [SQL Fiddle](http://sqlfiddle.com/)<br/>
 [DB Fiddle](https://www.db-fiddle.com/)<br/>
 
+## APIs
+[ProgrammableWeb](https://www.programmableweb.com/)<br/>
+[Tutorialspoint - Python Networking](https://www.tutorialspoint.com/python_network_programming/index.htm)<br/>
+
+# Facebook APIs
+[Graph API](https://developers.facebook.com/docs/graph-api)<br/>
+[Marketing API](https://developers.facebook.com/docs/marketing-apis/)<br/>
+[Business Manager API](https://developers.facebook.com/docs/business-manager-api)<br/>
+[Using Pixel with Marketing API](https://developers.facebook.com/docs/marketing-api/audiences-api/pixel)<br/>
+[Catalog Batch API](https://developers.facebook.com/docs/marketing-api/catalog-batch)<br/>
+[Manage Assets](https://developers.facebook.com/docs/marketing-api/business-asset-management/guides)<br/>
+[Pages API](https://developers.facebook.com/docs/pages/)<br/>
