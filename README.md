@@ -78,6 +78,8 @@
 [Statistics How to](https://www.statisticshowto.com/)<br/>
 [Math Works](https://www.mathworks.com/help/stats/index.html?s_cid=doc_ftr)<br/>
 [Miro - Which Statistical Test to use](https://miro.com/app/board/o9J_ktaDHWU=/)<br/>
+[Scribbr - Which Statistical Test to use](https://www.scribbr.com/statistics/statistical-tests/)<br/>
+[Tutorialspoint - Statistics](https://www.tutorialspoint.com/statistics/index.htm)<br/>
 
 ## Machine Learning
 [Sebastian Ruder - Gradient Desc Optimization algorithms](https://ruder.io/optimizing-gradient-descent/)<br/>
@@ -92,12 +94,16 @@
 [Hadrienj Linear Algebra Notes](https://github.com/hadrienj/deepLearningBook-Notes)<br/>
 [catbug - Intro to Linear Algebra](https://pabloinsente.github.io/intro-linear-algebra)<br/>
 [Made with ML - projects - articles](https://madewithml.com/projects/?t=week)<br/>
+[Re-Work Blog - 30 influential AI papers](https://blog.re-work.co/30-pieces-of-influential-ai-research-in-2019/)<br/>
+[Google ML Glossary](https://developers.google.com/machine-learning/glossary)<br/>
 
 ## Data Science
 [CommonLounge](https://www.commonlounge.com/path/4700ef59ccff433ab292770018050b5b)<br/>
 [Analytics Vidya Blog](https://www.analyticsvidhya.com/blog-archive/)<br/>
 [Analytics Vidya - Model Eval Error Metrics](https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/)
 [AV - Confusion Matrix](https://www.analyticsvidhya.com/blog/2020/04/confusion-matrix-machine-learning/)
+[Data Science Central](https://www.datasciencecentral.com/)<br/)
+[Ankit Rathi](https://ankit-rathi.github.io/data-and-ai/)<br/>
 
 ## System Design
 [Grokking the System Design Inteview](https://www.educative.io/courses/grokking-the-system-design-interview)<br/>
@@ -131,4 +137,11 @@
 ## Python
 [Python Cheatsheet](https://gto76.github.io/python-cheatsheet/#main)<br/>
 [Python Non-programmers wiki and links](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)<br/>
+[Python Fiddle](http://pythonfiddle.com/)<br/>
+
+## SQL
+[Select Star SQL](https://selectstarsql.com/)<br/>
+[SQL Zoo](https://sqlzoo.net/)<br/>
+[SQL Fiddle](http://sqlfiddle.com/)<br/>
+[DB Fiddle](https://www.db-fiddle.com/)<br/>
 
