@@ -28,6 +28,10 @@
 [Transitive Bullsh.t](https://blog.transitivebullsh.it/gaming-cs-interviews/)<br/>
 [Brandon's Blog](https://skerritt.blog/tag/university/)<br/>
 [Leetcode Meetup](https://groups.google.com/forum/m/#!forum/leetcode-meetup)<br/>
+[Keys to Accelerating your coding skills](http://blog.thefirehoseproject.com/posts/learn-to-code-and-be-self-reliant/)<br/>
+[Rishabh's SDE Int Questions](https://github.com/rishabh115/SDE-Interview-Questions?files=1)<br/>
+[Java 67](https://www.java67.com/2018/06/data-structure-and-algorithm-interview-questions-programmers.html)<br/>
+[TSiege](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b#file-the-technical-interview-cheat-sheet-md)<br/>
 
 
 ## Practice Sites 
@@ -67,16 +71,24 @@
 [Machine Learning Mastery - Statistical Hypothesis Tests](https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/)<br/>
 [Willams and Mary Univariate Distribution Relationships](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)<br/>
 [Probability Distributions - Wikipedia](https://en.wikipedia.org/wiki/Probability_distribution)<br/>
-
-
+[Statistics How to](https://www.statisticshowto.com/)<br/>
+[Math Works](https://www.mathworks.com/help/stats/index.html?s_cid=doc_ftr)<br/>
 
 ## Machine Learning
 [Sebastian Ruder - Gradient Desc Optimization algorithms](https://ruder.io/optimizing-gradient-descent/)<br/>
-[Ismail Mebsout - Blog] - DL CNN RN(https://www.ismailmebsout.com/)<br/>
+[Ismail Mebsout - Blog] - DL CNN RN](https://www.ismailmebsout.com/)<br/>
 [A Tour of Machine Learning Algorithms](https://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/)<br/>
+[ML Tut](https://www.mltut.com/deep-learning/)<br/>
+[KD Nuggets](https://www.kdnuggets.com/)<br/>
+[Tung M Phung's Blog](https://tungmphung.com/data-mining-machine-learning/)<br/>
+[Deep Learning - Machine learning courses](https://deep-learning-drizzle.github.io/index.html#mlfund)<br/>
+[House of Bots - 35 most popular ML int qa](https://www.houseofbots.com/news-detail/11729-1-35-plus-most-popular-machine-learning-interview-questions-with-answers)<br/>
 
 ## Data Science
 [CommonLounge](https://www.commonlounge.com/path/4700ef59ccff433ab292770018050b5b)<br/>
+[Analytics Vidya Blog](https://www.analyticsvidhya.com/blog-archive/)<br/>
+[Analytics Vidya - Model Eval Error Metrics](https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/)
+[AV - Confusion Matrix](https://www.analyticsvidhya.com/blog/2020/04/confusion-matrix-machine-learning/)
 
 ## System Design
 [Grokking the System Design Inteview](https://www.educative.io/courses/grokking-the-system-design-interview)<br/>
@@ -94,10 +106,20 @@
 [Christopher Meiklejohn - Readings in Distributed Systems](http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html)<br/>
 [Wiki - Fallacies of Distributed Computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)<br/>
 [Notes on Distributed Systems or Young Blood](https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/)<br/>
+[Yugabyte DB Storage Engines](https://blog.yugabyte.com/a-busy-developers-guide-to-database-storage-engines-the-basics/)<br/>
 
 ## Operating System
 [Linux Command cheatsheet](http://matt.might.net/articles/what-cs-majors-should-know/)<br/>
-
+[Linux Journey](https://linuxjourney.com/)<br/>
+[Linuxtopia online guides](https://www.linuxtopia.org/online_books/index.html)<br/>
 
 ## Tech Leadership
 [Derek Brown tech lead](https://github.com/derekbrown/techlead)<br/>
+
+## Interview Tips
+[Tadasant Blog](https://tadasant.com/blog/how-i-funnelled-my-way-into-9-offers-from-sf-tech-startups)<br/>
+
+## Python
+[Python Cheatsheet](https://gto76.github.io/python-cheatsheet/#main)<br/>
+[Python Non-programmers wiki and links](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)<br/>
+
