@@ -73,6 +73,11 @@
 [She Loves Math](https://www.shelovesmath.com/#PreAlgebra)<br/>
 [Khan Academy](https://www.khanacademy.org/math)<br/>
 [Cool Math](https://www.coolmath.com/)<br/>
+[Explained AI - Matrix Calculus](https://explained.ai/matrix-calculus/)<br/>
+[Linear Algebra on Wikipedia](https://en.wikipedia.org/wiki/Linear_algebra)<br/>
+[AeroStudents - Linear Algebra Summay](http://www.aerostudents.com/courses/linear-algebra/LinearAlgebraSummary.pdf)<br/>
+[Minireference - Linear Algebra in 4 pages(https://minireference.com/static/tutorials/linear_algebra_in_4_pages.pdf)<br/>
+[Minireference - Math pic](https://minireference.com/static/tutorials/mech_in_7_pages.pdf)<br/>
 
 ## Stats and Probability
 [Brown edu - Probability](https://seeing-theory.brown.edu/basic-probability/index.html)<br/>
@@ -80,11 +85,14 @@
 [Willams and Mary Univariate Distribution Relationships](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)<br/>
 [Probability Distributions - Wikipedia](https://en.wikipedia.org/wiki/Probability_distribution)<br/>
 [Statistics How to](https://www.statisticshowto.com/)<br/>
+[Stat Trek](https://stattrek.com/)<br/>
 [Math Works](https://www.mathworks.com/help/stats/index.html?s_cid=doc_ftr)<br/>
 [Miro - Which Statistical Test to use](https://miro.com/app/board/o9J_ktaDHWU=/)<br/>
 [Scribbr - Which Statistical Test to use](https://www.scribbr.com/statistics/statistical-tests/)<br/>
 [Tutorialspoint - Statistics](https://www.tutorialspoint.com/statistics/index.htm)<br/>
 [Listen data](https://www.listendata.com/p/statistics-tutorials.html)<br/>
+[Stats on wikipedia](https://en.wikipedia.org/wiki/Statistics)<br/>
+[Hypothesis Testing on Wikipedia](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing)<br/>
 
 ## Machine Learning
 [Sebastian Ruder - Gradient Desc Optimization algorithms](https://ruder.io/optimizing-gradient-descent/)<br/>
@@ -102,6 +110,10 @@
 [Re-Work Blog - 30 influential AI papers](https://blog.re-work.co/30-pieces-of-influential-ai-research-in-2019/)<br/>
 [Google ML Glossary](https://developers.google.com/machine-learning/glossary)<br/>
 [Stanford ML](http://www.holehouse.org/mlclass/)<br/>
+[Jeremy Jordan](https://www.jeremyjordan.me/)<br/>
+[Standford CS229](https://see.stanford.edu/Course/CS229)<br/>
+[Nasroo - 10 Mooc](https://nasroo.com/mooc-updates/10-moocs-to-learn-machine-learning-for-free/)<br/>
+
 
 ## Data Science
 [CommonLounge](https://www.commonlounge.com/path/4700ef59ccff433ab292770018050b5b)<br/>
@@ -112,6 +124,7 @@
 [Tutorialspoint - DS](https://www.tutorialspoint.com/python_data_science/index.htm)<br/>
 [Ankit Rathi](https://ankit-rathi.github.io/data-and-ai/)<br/>
 [Inno Architech](https://www.innoarchitech.com/blog/what-is-data-science-does-data-scientist-do)<br/>
+[The Clever Programmer](https://thecleverprogrammer.com/2020/05/18/data-science-interview-questions/)<br/>
 
 
 ## System Design
@@ -144,12 +157,14 @@
 [Tadasant Blog](https://tadasant.com/blog/how-i-funnelled-my-way-into-9-offers-from-sf-tech-startups)<br/>
 
 ## Python
+[GeeksforGeeks](https://www.geeksforgeeks.org/python-programming-language/)<br/>
 [Real Python](https://realpython.com/)<br/>
 [Tutorialspoint - Python](https://www.tutorialspoint.com/python/index.htm)<br/>
 [Python Cheatsheet](https://gto76.github.io/python-cheatsheet/#main)<br/>
 [Python Non-programmers wiki and links](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)<br/>
 [Python Fiddle](http://pythonfiddle.com/)<br/>
 [Tech Vidvan](https://techvidvan.com/tutorials/category/python/)<br/>
+[Practical Python](https://dabeaz-course.github.io/practical-python/Notes/Contents.html)<br/>
 
 ## SQL
 [Select Star SQL](https://selectstarsql.com/)<br/>
@@ -169,3 +184,9 @@
 [Catalog Batch API](https://developers.facebook.com/docs/marketing-api/catalog-batch)<br/>
 [Manage Assets](https://developers.facebook.com/docs/marketing-api/business-asset-management/guides)<br/>
 [Pages API](https://developers.facebook.com/docs/pages/)<br/>
+
+# Security
+[OWASP - CheatSheet](https://cheatsheetseries.owasp.org/index.html)<br/>
+
+# Download Pdfs/epubs
+[Library Genesis](http://gen.lib.rus.ec/)<br/>
