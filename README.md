@@ -84,6 +84,7 @@
 [Miro - Which Statistical Test to use](https://miro.com/app/board/o9J_ktaDHWU=/)<br/>
 [Scribbr - Which Statistical Test to use](https://www.scribbr.com/statistics/statistical-tests/)<br/>
 [Tutorialspoint - Statistics](https://www.tutorialspoint.com/statistics/index.htm)<br/>
+[Listen data](https://www.listendata.com/p/statistics-tutorials.html)<br/>
 
 ## Machine Learning
 [Sebastian Ruder - Gradient Desc Optimization algorithms](https://ruder.io/optimizing-gradient-descent/)<br/>
@@ -100,6 +101,7 @@
 [Made with ML - projects - articles](https://madewithml.com/projects/?t=week)<br/>
 [Re-Work Blog - 30 influential AI papers](https://blog.re-work.co/30-pieces-of-influential-ai-research-in-2019/)<br/>
 [Google ML Glossary](https://developers.google.com/machine-learning/glossary)<br/>
+[Stanford ML](http://www.holehouse.org/mlclass/)<br/>
 
 ## Data Science
 [CommonLounge](https://www.commonlounge.com/path/4700ef59ccff433ab292770018050b5b)<br/>
@@ -109,6 +111,7 @@
 [Data Science Central](https://www.datasciencecentral.com/)<br/)
 [Tutorialspoint - DS](https://www.tutorialspoint.com/python_data_science/index.htm)<br/>
 [Ankit Rathi](https://ankit-rathi.github.io/data-and-ai/)<br/>
+[Inno Architech](https://www.innoarchitech.com/blog/what-is-data-science-does-data-scientist-do)<br/>
 
 
 ## System Design
