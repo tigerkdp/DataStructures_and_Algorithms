@@ -95,7 +95,6 @@ print_list_comb(lst)
 3 1
 3 2
 3 3
-
 """
 
 def unsorted_linear_search(A, data):
@@ -942,6 +941,42 @@ k  = 1
 print("Item found at index ", search_in_rotated_array(A, k))
 #Item found at index  4
 
+print("subarray")
+def print_sub_array(A):
+    
+    list1 = []
+    list2 = []
+    n = len(A)
+    for i in range(0, n):
+        list2.append(A[i])
+        for j in range(i+1, n):
+            list2.append(A[j])
+        list1.append(list2)
+        list2=[]
+    print(list1)
+
+A = [1,2,3]
+print_sub_array(A)
+
+print("Continugous Sub array")
+def print_sub_array(A):
+    
+    max_sub = float("-inf")
+    n = len(A)
+    for i in range(0, n):
+        curr_subarry = 0 
+        for j in range(i, n):
+            curr_subarry += A[j]
+            if curr_subarry > max_sub:
+                max_sub = curr_subarry
+            if curr_subarry < 0:
+                curr_subarry = 0
+                
+    print("max_contig_sub", max_sub)
+
+A = [-2,1,-3,4,-1,2,1,-5,4]
+print_sub_array(A)
+
 #max subarray
 # max_ending_her: max(x, max_ending_here + x)
 # max_so_far = max(max_so_far, max_ending_here)
@@ -953,8 +988,8 @@ def max_subarray(A):
     print(max_so_far)
     return max_so_far
 
-A = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
-print("Max subarray", max_subarray(A))
+nums = [-2, 1,-3, 4, -1, 2, 1, -5, 4]
+print("Max subarray", max_subarray(nums))
 #Max subarray 6
 
 
@@ -1362,7 +1397,6 @@ def prod_without_index(A):
         #prod =A[3]*prod=6*1=6,      
     #res[2]*prod= 8*6=48,
         #prod=A[2]*prod=5*6=30,
-    # res[1]*prod=2*30=60,
         # prod=A[1]*prod=4*30=120 
     # res[0]=1*120=120
     for i in range(n-1,-1,-1):
